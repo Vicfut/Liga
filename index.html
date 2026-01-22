@@ -123,10 +123,16 @@
         </table>
       </div>
     </section>
-<h2 id="calendario" style="text-align:center; cursor:pointer;">
+<h2 id="calendario" style="text-align:center; cursor:pointer; margin-top:40px;">
   Calendario
 </h2>
-<img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" alt="Calendario" style="display:none; width:100%; max-width:600px; margin: 20px auto; display:block;">
+
+<img
+  id="calendario-img"
+  src="https://i.imgur.com/7kS9nTW.png"
+  alt="Calendario"
+  style="display:none; width:100%; max-width:600px; margin: 20px auto;"
+>
 
   </main>
 
@@ -172,13 +178,19 @@ headers.forEach((th, index) => {
   }
 });
 
-// Script para mostrar/ocultar la imagen del Calendario
-const calendario = document.getElementById("calendario");
-const calendarioImg = document.getElementById("calendario-img");
 
-calendario.addEventListener("click", () => {
-  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
-});
+  const calendarioTitle = document.getElementById("calendario");
+  const calendarioImg = document.getElementById("calendario-img");
+
+  calendarioTitle.addEventListener("click", () => {
+    if (calendarioImg.style.display === "none") {
+      calendarioImg.style.display = "block";
+    } else {
+      calendarioImg.style.display = "none";
+    }
+  });
+
+
 </script>
 
 
