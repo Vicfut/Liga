@@ -122,7 +122,7 @@ tbody tr:hover {
 table .logo {
   max-height: 50px;      /* altura máxima */
   width: auto;           /* ancho automático para respetar la proporción */
-  margin-right: 8px;     /* espacio entre imagen y texto */
+  margin-right: 5px;     /* espacio entre imagen y texto */
   vertical-align: middle; /* centra verticalmente la imagen con el nombre */
 }
 
