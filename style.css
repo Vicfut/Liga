@@ -88,7 +88,9 @@ h2 {
 /* Tabla */
 .table-container {
   overflow-x: auto;
+  margin-bottom: 60px; /* espacio antes del Calendario */
 }
+
 
 table {
   width: 100%;
