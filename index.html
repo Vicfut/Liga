@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Liga Xposers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
@@ -11,7 +12,6 @@
 <header>
   <h1>
     <img src="https://i.imgur.com/RAyIsEA.png" alt="Logo Liga Xposers" class="header-logo">
-    Liga Xposers
   </h1>
 </header>
 
@@ -129,34 +129,54 @@
   <footer>
     <p>© 2026 - Liga Xposers Vicfut</p>
   </footer>
+  
 <script>
-  // Obtener la tabla
-  const table = document.querySelector("table tbody");
-  const thGF = document.querySelector("table thead th:nth-child(7)"); // columna GF
+const table = document.querySelector("table tbody");
+const headers = document.querySelectorAll("table thead th");
 
-  // Bandera para alternar asc/desc
-  let descending = true;
+// Índices de las columnas numéricas (ajustar según tu tabla)
+// 2 = PJ, 3 = G, 4 = E, 5 = P, 6 = GF, 7 = GC, 8 = DG, 9 = Pts
+const numericCols = [2,3,4,5,6,7,8,9];
 
-  thGF.style.cursor = "pointer"; // mostrar que es clicable
+headers.forEach((th, index) => {
+  if(numericCols.includes(index)) {
+    th.style.cursor = "pointer";
+    let descending = true;
 
-  thGF.addEventListener("click", () => {
-    // Obtener todas las filas del tbody
-    const rows = Array.from(table.querySelectorAll("tr"));
+    // Añadir flechas a la columna
+    const span = document.createElement("span");
+    span.className = "sort-arrows";
+    th.appendChild(span);
 
-    // Ordenar por GF (columna 7)
-    rows.sort((a, b) => {
-      const aGF = parseInt(a.children[6].textContent); // índice 6 = GF
-      const bGF = parseInt(b.children[6].textContent);
-      return descending ? bGF - aGF : aGF - bGF;
+    th.addEventListener("click", () => {
+      const rows = Array.from(table.querySelectorAll("tr"));
+
+      rows.sort((a,b) => {
+        const valA = parseInt(a.children[index].textContent);
+        const valB = parseInt(b.children[index].textContent);
+
+        // Si son iguales, ordenar alfabéticamente por nombre de equipo
+        if(valA === valB) {
+          const nameA = a.children[1].textContent.trim().toLowerCase();
+          const nameB = b.children[1].textContent.trim().toLowerCase();
+          return nameA.localeCompare(nameB);
+        }
+
+        return descending ? valB - valA : valA - valB;
+      });
+
+      rows.forEach(row => table.appendChild(row));
+
+      // Actualizar flechas
+      headers.forEach(h => h.classList.remove("sorted-asc","sorted-desc"));
+      th.classList.add(descending ? "sorted-desc" : "sorted-asc");
+
+      descending = !descending;
     });
-
-    // Volver a agregar las filas ordenadas al tbody
-    rows.forEach(row => table.appendChild(row));
-
-    // Cambiar dirección para el próximo clic
-    descending = !descending;
-  });
+  }
+});
 </script>
+
 
 </body>
 </html>
