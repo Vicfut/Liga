@@ -36,23 +36,34 @@ header p {
   margin: 0 auto;
 }
 
-/* Cuadro individual */
+/* Contenedor: una sola fila SIEMPRE */
+.clubs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;      /* NO permite salto de línea */
+  overflow-x: auto;       /* Por si la pantalla es muy pequeña */
+  margin: 0 auto;
+}
+
+/* Cuadros más pequeños */
 .club {
-  width: 60px;     /* 20px más pequeño */
-  height: 60px;    /* 20px más pequeño */
+  width: 48px;
+  height: 48px;
   background-color: #2b2b2b;
   border: 1px solid #444;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  flex-shrink: 0;         /* Evita que se deformen */
   transition: background 0.2s;
 }
 
-/* Imagen dentro del cuadro */
+/* Imagen */
 .club img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 85%;
+  max-height: 85%;
 }
 
 /* Hover */
