@@ -117,7 +117,7 @@ footer {
 table .logo {
   width: 25px;       /* ancho */
   height: 25px;      /* alto */
-  margin-right: 8px; /* espacio entre logo y nombre */
+  margin-right: 5px; /* espacio entre logo y nombre */
   vertical-align: middle;
 }
 /* Alinear los nombres de los equipos a la izquierda */
