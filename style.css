@@ -36,8 +36,8 @@ header p {
 /* Logo del título */
 
 .header-logo {
-  width: 180px;   /* ancho deseado */
-  height: 154px;  /* alto deseado */
+  width: 235px;   /* ancho deseado */
+  height: 210px;  /* alto deseado */
   object-fit: contain; /* mantiene la proporción real de la imagen */
 }
 
