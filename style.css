@@ -25,6 +25,7 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px; /* espacio entre imagen y texto */
 }
 
 header p {
@@ -33,16 +34,12 @@ header p {
 }
 
 /* Logo del título */
-.header-logo {
-  width: 225px;       /* ancho fijo */
-  height: 150px;      /* alto fijo */
-  margin-right: 15px;
-  vertical-align: middle;
-  max-width: none;    /* ignora cualquier max-width heredada */
-  max-height: none;   /* ignora cualquier max-height heredada */
-  flex-shrink: 0;     /* evita que flex la reduzca */
-}
 
+.header-logo {
+  width: 125px;   /* ancho deseado */
+  height: 112px;  /* alto deseado */
+  object-fit: contain; /* mantiene la proporción real de la imagen */
+}
 
 /* Cuadros de clubes */
 .clubs {
