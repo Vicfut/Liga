@@ -115,8 +115,8 @@ footer {
 }
 /* Logos dentro de la tabla */
 table .logo {
-  width: 10px;       /* ancho */
-  height: 10px;      /* alto */
+  width: 15px;       /* ancho */
+  height: 15px;      /* alto */
   margin-right: 8px; /* espacio entre logo y nombre */
   vertical-align: middle;
 }
