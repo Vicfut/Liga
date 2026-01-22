@@ -134,29 +134,24 @@
 const table = document.querySelector("table tbody");
 const headers = document.querySelectorAll("table thead th");
 
-// Índices de las columnas numéricas (ajustar según tu tabla)
-// 2 = PJ, 3 = G, 4 = E, 5 = P, 6 = GF, 7 = GC, 8 = DG, 9 = Pts
+// Índices de todas las columnas numéricas
 const numericCols = [2,3,4,5,6,7,8,9];
 
 headers.forEach((th, index) => {
-  if(numericCols.includes(index)) {
+  if (numericCols.includes(index)) {
     th.style.cursor = "pointer";
-    let descending = true;
 
-    // Añadir flechas a la columna
-    const span = document.createElement("span");
-    span.className = "sort-arrows";
-    th.appendChild(span);
+    let descending = true;
 
     th.addEventListener("click", () => {
       const rows = Array.from(table.querySelectorAll("tr"));
 
-      rows.sort((a,b) => {
+      rows.sort((a, b) => {
         const valA = parseInt(a.children[index].textContent);
         const valB = parseInt(b.children[index].textContent);
 
-        // Si son iguales, ordenar alfabéticamente por nombre de equipo
-        if(valA === valB) {
+        // Si son iguales, ordenar alfabéticamente por nombre
+        if (valA === valB) {
           const nameA = a.children[1].textContent.trim().toLowerCase();
           const nameB = b.children[1].textContent.trim().toLowerCase();
           return nameA.localeCompare(nameB);
@@ -167,15 +162,12 @@ headers.forEach((th, index) => {
 
       rows.forEach(row => table.appendChild(row));
 
-      // Actualizar flechas
-      headers.forEach(h => h.classList.remove("sorted-asc","sorted-desc"));
-      th.classList.add(descending ? "sorted-desc" : "sorted-asc");
-
       descending = !descending;
     });
   }
 });
 </script>
+
 
 
 </body>
