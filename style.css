@@ -129,3 +129,8 @@ table .logo {
   margin-right: 8px; /* espacio entre logo y nombre */
   vertical-align: middle;
 }
+/* Alinear los nombres de los equipos a la izquierda */
+table td:nth-child(2) {
+  text-align: left;
+}
+
