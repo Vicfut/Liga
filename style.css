@@ -119,12 +119,12 @@ tbody tr:hover {
   background-color: #2f2f2f;
 }
 
-/* Logos dentro de la tabla */
+/* Logos dentro de la tabla, manteniendo proporción original */
 table .logo {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  vertical-align: middle;
+  max-height: 30px;      /* altura máxima */
+  width: auto;           /* ancho automático para respetar la proporción */
+  margin-right: 8px;     /* espacio entre imagen y texto */
+  vertical-align: middle; /* centra verticalmente la imagen con el nombre */
 }
 
 /* Alinear nombres de equipos a la izquierda */
