@@ -34,11 +34,12 @@ header p {
 
 /* Logo del título */
 .header-logo {
-  height: 25px;
-  width: auto;
-  margin-right: 10px;
+  width: 125px;      /* ancho fijo */
+  height: 112px;     /* alto fijo */
+  margin-right: 15px;
   vertical-align: middle;
 }
+
 
 /* Cuadros de clubes */
 .clubs {
