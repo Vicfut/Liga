@@ -170,4 +170,9 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
-
+#calendario {
+  margin-top: 60px; /* Ajusta la separación que quieras */
+  text-align: center; /* centrado */
+  font-size: 32px;   /* tamaño grande */
+  cursor: pointer;   /* para indicar que se puede pulsar */
+}
