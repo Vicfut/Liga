@@ -23,7 +23,35 @@ header h1 {
 }
 
 header p {
+  margin-bottom: 20px;
   color: #bbbbbb;
+}
+
+/* Cuadros de clubes */
+.clubs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.club {
+  background-color: #2b2b2b;
+  border: 1px solid #444;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: background 0.2s;
+}
+
+.club:hover {
+  background-color: #3a3a3a;
 }
 
 /* Main */
@@ -76,3 +104,4 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
+
