@@ -118,25 +118,22 @@ tbody tr:hover {
   background-color: #2f2f2f;
 }
 
+/* Logos dentro de la tabla, manteniendo proporción original */
 table .logo {
-  height: 30px;       /* todas iguales */
-  width: auto;        /* mantiene proporción */
-  object-fit: contain;
+  max-height: 30px;      /* altura máxima */
+  width: auto;           /* ancho automático para respetar la proporción */
+  margin-right: 8px;     /* espacio entre imagen y texto */
+  vertical-align: middle; /* centra verticalmente la imagen con el nombre */
 }
 
-/* Alinear verticalmente logo y nombre */
+/* Alinear verticalmente logos y nombres */
 table td:nth-child(2) {
-  display: flex;        /* activa flexbox */
-  align-items: center;  /* centra verticalmente */
-  gap: 8px;             /* espacio entre logo y nombre */
-  text-align: left;     /* nombres a la izquierda */
+  display: flex;           /* activa flexbox en la celda */
+  align-items: center;     /* centra verticalmente */
+  gap: 8px;                /* espacio entre logo y nombre */
+  text-align: left;        /* nombres a la izquierda */
 }
-/* Contenedor de logo + nombre */
-.team-cell {
-  display: flex;
-  align-items: center; /* centra verticalmente */
-  gap: 8px;            /* espacio entre logo y texto */
-}
+
 
 /* Flechas de ordenación */
 .sort-arrows {
