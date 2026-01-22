@@ -176,3 +176,10 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
+/* Wrapper interno dentro de td para alinear logo y nombre */
+.team-cell {
+  display: flex;
+  align-items: center; /* centra verticalmente logo y texto */
+  gap: 8px;           /* espacio entre logo y nombre */
+}
+
