@@ -34,10 +34,13 @@ header p {
 
 /* Logo del título */
 .header-logo {
-  width: 325px;      /* ancho fijo */
-  height: 290px;     /* alto fijo */
+  width: 325px;       /* ancho fijo */
+  height: 290px;      /* alto fijo */
   margin-right: 15px;
   vertical-align: middle;
+  max-width: none;    /* ignora cualquier max-width heredada */
+  max-height: none;   /* ignora cualquier max-height heredada */
+  flex-shrink: 0;     /* evita que flex la reduzca */
 }
 
 
