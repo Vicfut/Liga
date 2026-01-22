@@ -176,12 +176,11 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
-/* Wrapper interno dentro de td para alinear logo y nombre */
-/* Celda equipo con flex interno */
+/* Celda equipo: logo + nombre en horizontal */
 .team-cell {
   display: flex;
-  align-items: center; /* 🔥 alineación vertical REAL */
-  gap: 10px;
+  align-items: center;   /* centra verticalmente */
+  gap: 12px;             /* espacio entre escudo y nombre */
 }
 
 /* Caja fija para TODOS los escudos */
@@ -191,19 +190,18 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  flex-shrink: 0;        /* evita que se aplaste */
 }
 
-/* Imagen ajustada a la caja */
-.logo-box img {
+/* Escudos normalizados */
+.logo {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* Texto del equipo */
+/* Nombre del equipo */
 .team-name {
-  line-height: 1;
-  white-space: nowrap;
+  white-space: nowrap;  /* evita saltos de línea */
 }
 
