@@ -143,4 +143,11 @@ table td:nth-child(2) {
 .sorted-desc .sort-arrows::before {
   content: "";   /* oculta la flecha arriba */
 }
+.header-logo {
+  height: 60px;       /* altura más pequeña */
+  width: auto;        /* ancho ajusta automáticamente */
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
 
