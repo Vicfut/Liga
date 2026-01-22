@@ -4,172 +4,156 @@
   <meta charset="UTF-8">
   <title>Liga Xposers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: Arial, Helvetica, sans-serif; background-color:#2b2b2b; color:#e0e0e0; }
 
-    /* Header */
-    header { background-color:#1f1f1f; padding:30px 20px; text-align:center; }
-    header h1 { font-size:36px; color:#ffffff; display:flex; align-items:center; justify-content:center; }
-    header p { margin-bottom:20px; color:#bbbbbb; }
-    .header-logo { height:25px; width:auto; margin-right:10px; vertical-align:middle; }
-
-    /* Cuadros de clubes */
-    .clubs { display:flex; justify-content:center; align-items:center; gap:8px; flex-wrap:nowrap; overflow-x:auto; margin:0 auto; }
-    .club { width:48px; height:48px; background-color:#2b2b2b; border:1px solid #444; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background 0.2s; }
-    .club img { max-width:85%; max-height:85%; }
-    .club:hover { background-color:#3a3a3a; }
-
-    /* Main */
-    main { max-width:1100px; margin:40px auto; padding:0 20px; }
-    h2 { margin-bottom:20px; text-align:center; }
-
-    /* Tabla */
-    .table-container { overflow-x:auto; }
-    table { width:100%; border-collapse:collapse; background-color:#1f1f1f; }
-    thead { background-color:#333333; }
-    th, td { padding:10px; text-align:center; border-bottom:1px solid #444444; }
-    th { color:#ffffff; }
-    tbody tr:hover { background-color:#2f2f2f; }
-    table .logo { width:20px; height:20px; margin-right:8px; vertical-align:middle; }
-    table td:nth-child(2) { text-align:left; }
-
-    /* Flechas */
-    .sort-arrows { display:inline-block; margin-left:5px; font-size:12px; color:#bbbbbb; position:relative; }
-    .sort-arrows::before { content:"▲"; margin-right:2px; color:#bbbbbb; }
-    .sort-arrows::after { content:"▼"; color:#bbbbbb; }
-    .sorted-asc .sort-arrows::before,
-    .sorted-desc .sort-arrows::before { display:none; }
-    .sorted-asc .sort-arrows::after,
-    .sorted-desc .sort-arrows::after { color:#ffffff; }
-
-    /* Footer */
-    footer { background-color:#1f1f1f; text-align:center; padding:15px; margin-top:40px; color:#aaaaaa; font-size:14px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>
-    <img src="https://i.imgur.com/RAyIsEA.png" alt="Logo" class="header-logo">
-    Liga Xposers
-  </h1>
-  <p>Clasificación oficial</p>
-</header>
+  <header>
+    <h1>Liga Xposers</h1>
+    <p>Clasificación oficial</p>
 
-<!-- Cuadros de clubes -->
+<!-- Cuadros de clubes (orden alfabético) -->
 <div class="clubs">
   <a href="#" class="club"><img src="" alt="Angel City"></a>
-  <a href="#" class="club" title="Antisoccer SC"><img src="https://i.imgur.com/apOAYCr.png" alt="Antisoccer SC"></a>
+  <a href="#" class="club" title="Antisoccer SC">
+  <img src="https://i.imgur.com/apOAYCr.png" alt="Antisoccer SC">
+  </a>
+
   <a href="#" class="club"><img src="" alt="Catamarca FC"></a>
-  <a href="#" class="club" title="Cuervos FC"><img src="https://i.imgur.com/02kQ0BD.png" alt="Cuervos FC"></a>
+  <a href="#" class="club" title="Cuervos FC">
+  <img src="https://i.imgur.com/02kQ0BD.png" alt="Cuervos FC">
+  </a>
+
   <a href="#" class="club"><img src="" alt="Fragance FC"></a>
-  <a href="#" class="club" title="Guaya City"><img src="https://i.imgur.com/SLUAcKG.png" alt="Guaya City"></a>
+  <a href="#" class="club" title="Guaya City">
+  <img src="https://i.imgur.com/SLUAcKG.png" alt="Guaya City">
+  </a>
   <a href="#" class="club"><img src="" alt="Nitokonikito FC"></a>
-  <a href="#" class="club" title="PonElde30 FC"><img src="https://i.imgur.com/9qeFFbr.png" alt="PonElde30 FC"></a>
-  <a href="#" class="club" title="Sants FC"><img src="https://i.imgur.com/ibEeyHj.png" alt="Sants FC"></a>
+  <a href="#" class="club" title="PonElde30 FC">
+  <img src="https://i.imgur.com/9qeFFbr.png" alt="PonElde30 FC">
+  </a>
+  <a href="#" class="club" title="Sants FC">
+  <img src="https://i.imgur.com/ibEeyHj.png" alt="Sants FC">
+  </a>
   <a href="#" class="club"><img src="" alt="Várzea FC"></a>
 </div>
 
-<main>
-  <section>
-    <h2>Tabla de Clasificación</h2>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>PJ <span class="sort-arrows"></span></th>
-            <th>G <span class="sort-arrows"></span></th>
-            <th>E <span class="sort-arrows"></span></th>
-            <th>P <span class="sort-arrows"></span></th>
-            <th>GF <span class="sort-arrows"></span></th>
-            <th>GC <span class="sort-arrows"></span></th>
-            <th>DG <span class="sort-arrows"></span></th>
-            <th>Pts <span class="sort-arrows"></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td><td><img class="logo" src="img/angel-city.png" alt="Angel City"> Angel City</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>12</td>
-          </tr>
-          <tr>
-            <td>2</td><td><img class="logo" src="https://i.imgur.com/apOAYCr.png" alt="Antisoccer SC"> Antisoccer SC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>3</td>
-          </tr>
-          <tr>
-            <td>3</td><td><img class="logo" src="img/catamarca.png" alt="Catamarca FC"> Catamarca FC</td>
-            <td>0</td><td>0</td><td>4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>4</td><td><img class="logo" src="https://i.imgur.com/02kQ0BD.png" alt="Cuervos FC"> Cuervos FC</td>
-            <td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>5</td><td><img class="logo" src="img/fragance.png" alt="Fragance FC"> Fragance FC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>6</td><td><img class="logo" src="https://i.imgur.com/SLUAcKG.png" alt="Guaya City"> Guaya City</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>7</td><td><img class="logo" src="img/nitokonikito.png" alt="Nitokonikito FC"> Nitokonikito FC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>8</td><td><img class="logo" src="https://i.imgur.com/9qeFFbr.png" alt="PonElde30 FC"> PonElde30 FC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>9</td><td><img class="logo" src="https://i.imgur.com/ibEeyHj.png" alt="Sants FC"> Sants FC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <td>10</td><td><img class="logo" src="img/varzea.png" alt="Várzea FC"> Várzea FC</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-</main>
 
-<footer>
-  <p>© 2026 - Liga Xposers</p>
-</footer>
 
+  <main>
+
+    <section>
+      <h2>Tabla de Clasificación</h2>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Equipo</th>
+              <th>PJ</th>
+              <th>G</th>
+              <th>E</th>
+              <th>P</th>
+              <th>GF</th>
+              <th>GC</th>
+              <th>DG</th>
+              <th>Pts</th>
+            </tr>
+          </thead>
+
+
+<tbody>
+  <tr>
+    <td>1</td>
+    <td><img class="logo" src="img/angel-city.png" alt="Angel City"> Angel City</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><img class="logo" src="https://i.imgur.com/apOAYCr.png" alt="Antisoccer SC"> Antisoccer SC</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><img class="logo" src="img/catamarca.png" alt="Catamarca FC"> Catamarca FC</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+  <td>4</td>
+  <td><img class="logo" src="https://i.imgur.com/02kQ0BD.png" alt="Cuervos FC"> Cuervos FC</td>
+  <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td><img class="logo" src="img/fragance.png" alt="Fragance FC"> Fragance FC</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+  <td>6</td>
+  <td><img class="logo" src="https://i.imgur.com/SLUAcKG.png" alt="Guaya City"> Guaya City</td>
+  <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td><img class="logo" src="img/nitokonikito.png" alt="Nitokonikito FC"> Nitokonikito FC</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+  <td>8</td>
+  <td><img class="logo" src="https://i.imgur.com/9qeFFbr.png" alt="PonElde30 FC"> PonElde30 FC</td>
+  <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+  <td>9</td>
+  <td><img class="logo" src="https://i.imgur.com/ibEeyHj.png" alt="Sants FC"> Sants FC</td>
+  <td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td><img class="logo" src="img/varzea.png" alt="Várzea FC"> Várzea FC</td>
+    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+</tbody>
+
+
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 - Liga Xposers</p>
+  </footer>
 <script>
-const table = document.querySelector("table tbody");
-const headers = document.querySelectorAll("table thead th");
-const numericCols = [0,1,2,3,4,5,6,7]; // índices de columnas numéricas (ajusta si cambias # o Equipo)
+  // Obtener la tabla
+  const table = document.querySelector("table tbody");
+  const thGF = document.querySelector("table thead th:nth-child(7)"); // columna GF
 
-headers.forEach((th, index) => {
-  if (numericCols.includes(index)) {
-    th.style.cursor = "pointer";
-    let descending = true;
+  // Bandera para alternar asc/desc
+  let descending = true;
 
-    th.addEventListener("click", () => {
-      const rows = Array.from(table.querySelectorAll("tr"));
-      rows.sort((a,b) => {
-        const valA = parseInt(a.children[index].textContent);
-        const valB = parseInt(b.children[index].textContent);
-        if(valA === valB){
-          const nameA = a.children[1].textContent.trim().toLowerCase();
-          const nameB = b.children[1].textContent.trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        }
-        return descending ? valB - valA : valA - valB;
-      });
-      rows.forEach(row => table.appendChild(row));
+  thGF.style.cursor = "pointer"; // mostrar que es clicable
 
-      headers.forEach(h => h.classList.remove("sorted-asc","sorted-desc"));
-      th.classList.add(descending ? "sorted-desc" : "sorted-asc");
+  thGF.addEventListener("click", () => {
+    // Obtener todas las filas del tbody
+    const rows = Array.from(table.querySelectorAll("tr"));
 
-      descending = !descending;
+    // Ordenar por GF (columna 7)
+    rows.sort((a, b) => {
+      const aGF = parseInt(a.children[6].textContent); // índice 6 = GF
+      const bGF = parseInt(b.children[6].textContent);
+      return descending ? bGF - aGF : aGF - bGF;
     });
-  }
-});
+
+    // Volver a agregar las filas ordenadas al tbody
+    rows.forEach(row => table.appendChild(row));
+
+    // Cambiar dirección para el próximo clic
+    descending = !descending;
+  });
 </script>
 
 </body>
