@@ -118,11 +118,10 @@ tbody tr:hover {
   background-color: #2f2f2f;
 }
 
-/* Logos dentro de la tabla, uniformes */
 table .logo {
-  height: 30px;      /* altura fija para todas las imágenes */
-  width: auto;       /* ancho automático para mantener proporción */
-  object-fit: contain; /* asegura que no se deformen */
+  height: 30px;       /* todas iguales */
+  width: auto;        /* mantiene proporción */
+  object-fit: contain;
 }
 
 /* Alinear verticalmente logo y nombre */
@@ -132,7 +131,12 @@ table td:nth-child(2) {
   gap: 8px;             /* espacio entre logo y nombre */
   text-align: left;     /* nombres a la izquierda */
 }
-
+/* Contenedor de logo + nombre */
+.team-cell {
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  gap: 8px;            /* espacio entre logo y texto */
+}
 
 /* Flechas de ordenación */
 .sort-arrows {
