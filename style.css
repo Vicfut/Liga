@@ -42,18 +42,33 @@ header p {
   object-fit: contain; /* mantiene la proporción real de la imagen */
 }
 
+/* Vista PC */
 .clubs {
   display: flex;
+  justify-content: center;   /* centrados */
+  align-items: center;
   gap: 8px;
-  justify-content: flex-start;   /* importante en móvil */
-  overflow-x: auto;              /* permite deslizar */
-  padding: 10px;
-  scrollbar-width: none;         /* Firefox */
+  flex-wrap: nowrap;
+  margin: 20px auto 0;
 }
 
-.clubs::-webkit-scrollbar {
-  display: none;                 /* Chrome / Safari */
+/* Vista móvil */
+@media (max-width: 768px) {
+  .clubs {
+    justify-content: flex-start; /* empiezan a la izquierda */
+    overflow-x: auto;            /* scroll horizontal */
+    padding: 10px;
+  }
+
+  .clubs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .clubs {
+    scrollbar-width: none;
+  }
 }
+
 
 
 .club {
