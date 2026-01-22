@@ -122,4 +122,12 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
+/* Logos dentro de la tabla */
+table .logo {
+  width: 24px;       /* ajusta tamaño del logo */
+  height: 24px;      /* ajusta tamaño del logo */
+  margin-right: 8px; /* espacio entre logo y nombre */
+  vertical-align: middle;
+}
+
 
