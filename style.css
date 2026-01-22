@@ -27,25 +27,16 @@ header p {
   color: #bbbbbb;
 }
 
-/* Cuadros de clubes en una fila */
-.clubs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: nowrap;
-  margin: 0 auto;
-}
-
-/* Contenedor: una sola fila SIEMPRE */
 .clubs {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  flex-wrap: nowrap;      /* NO permite salto de línea */
+  flex-wrap: nowrap;      /* No permite salto de línea */
   overflow-x: auto;       /* Por si la pantalla es muy pequeña */
   margin: 0 auto;
 }
+
 
 /* Cuadros más pequeños */
 .club {
