@@ -127,32 +127,42 @@
   <footer>
     <p>© 2026 - Liga Xposers</p>
   </footer>
+    
 <script>
-  // Obtener la tabla
   const table = document.querySelector("table tbody");
-  const thGF = document.querySelector("table thead th:nth-child(7)"); // columna GF
+  const headers = document.querySelectorAll("table thead th");
 
-  // Bandera para alternar asc/desc
-  let descending = true;
+  // Columnas numéricas: PJ(3), G(4), E(5), P(6), GF(7), GC(8), DG(9), Pts(10)
+  const numericCols = [2,3,4,5,6,7,8,9]; // indices de td (0-based)
 
-  thGF.style.cursor = "pointer"; // mostrar que es clicable
+  headers.forEach((th, index) => {
+    if (numericCols.includes(index)) {
+      th.style.cursor = "pointer"; // mostrar que es clicable
+      let descending = true; // bandera de orden
 
-  thGF.addEventListener("click", () => {
-    // Obtener todas las filas del tbody
-    const rows = Array.from(table.querySelectorAll("tr"));
+      th.addEventListener("click", () => {
+        const rows = Array.from(table.querySelectorAll("tr"));
 
-    // Ordenar por GF (columna 7)
-    rows.sort((a, b) => {
-      const aGF = parseInt(a.children[6].textContent); // índice 6 = GF
-      const bGF = parseInt(b.children[6].textContent);
-      return descending ? bGF - aGF : aGF - bGF;
-    });
+        rows.sort((a, b) => {
+          const valA = parseInt(a.children[index].textContent);
+          const valB = parseInt(b.children[index].textContent);
 
-    // Volver a agregar las filas ordenadas al tbody
-    rows.forEach(row => table.appendChild(row));
+          if (valA === valB) {
+            // si hay empate, ordenar alfabéticamente por el nombre del equipo (columna 2)
+            const nameA = a.children[1].textContent.trim().toLowerCase();
+            const nameB = b.children[1].textContent.trim().toLowerCase();
+            return nameA.localeCompare(nameB);
+          }
 
-    // Cambiar dirección para el próximo clic
-    descending = !descending;
+          return descending ? valB - valA : valA - valB;
+        });
+
+        // volver a agregar filas ordenadas
+        rows.forEach(row => table.appendChild(row));
+
+        descending = !descending; // alternar orden
+      });
+    }
   });
 </script>
 
