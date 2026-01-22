@@ -25,13 +25,15 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* espacio entre imagen y texto */
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 header p {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   color: #bbbbbb;
 }
+
 
 /* Logo del título */
 
