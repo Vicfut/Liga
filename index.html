@@ -9,9 +9,13 @@
 </head>
 <body>
 
-  <header>
-    <h1>Liga Xposers</h1>
-    <p>Clasificación oficial</p>
+<header>
+  <h1>
+    <img src="https://i.imgur.com/RAyIsEA.png" alt="Logo" class="header-logo">
+    Liga Xposers
+  </h1>
+  <p>Clasificación oficial</p>
+</header>
 
 <!-- Cuadros de clubes (orden alfabético) -->
 <div class="clubs">
@@ -50,16 +54,14 @@
         <table>
           <thead>
             <tr>
-              <th>#</th>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>G</th>
-              <th>E</th>
-              <th>P</th>
-              <th>GF</th>
-              <th>GC</th>
-              <th>DG</th>
-              <th>Pts</th>
+<th>PJ <span class="sort-arrows">▲▼</span></th>
+<th>G <span class="sort-arrows">▲▼</span></th>
+<th>E <span class="sort-arrows">▲▼</span></th>
+<th>P <span class="sort-arrows">▲▼</span></th>
+<th>GF <span class="sort-arrows">▲▼</span></th>
+<th>GC <span class="sort-arrows">▲▼</span></th>
+<th>DG <span class="sort-arrows">▲▼</span></th>
+<th>Pts <span class="sort-arrows">▲▼</span></th>
             </tr>
           </thead>
 
@@ -129,42 +131,42 @@
   </footer>
     
 <script>
-  const table = document.querySelector("table tbody");
-  const headers = document.querySelectorAll("table thead th");
+const table = document.querySelector("table tbody");
+const headers = document.querySelectorAll("table thead th");
+const numericCols = [2,3,4,5,6,7,8,9]; // índices de las columnas numéricas
 
-  // Columnas numéricas: PJ(3), G(4), E(5), P(6), GF(7), GC(8), DG(9), Pts(10)
-  const numericCols = [2,3,4,5,6,7,8,9]; // indices de td (0-based)
+headers.forEach((th, index) => {
+  if (numericCols.includes(index)) {
+    th.style.cursor = "pointer";
+    let descending = true;
 
-  headers.forEach((th, index) => {
-    if (numericCols.includes(index)) {
-      th.style.cursor = "pointer"; // mostrar que es clicable
-      let descending = true; // bandera de orden
+    th.addEventListener("click", () => {
+      // Ordenar filas
+      const rows = Array.from(table.querySelectorAll("tr"));
+      rows.sort((a, b) => {
+        const valA = parseInt(a.children[index].textContent);
+        const valB = parseInt(b.children[index].textContent);
 
-      th.addEventListener("click", () => {
-        const rows = Array.from(table.querySelectorAll("tr"));
-
-        rows.sort((a, b) => {
-          const valA = parseInt(a.children[index].textContent);
-          const valB = parseInt(b.children[index].textContent);
-
-          if (valA === valB) {
-            // si hay empate, ordenar alfabéticamente por el nombre del equipo (columna 2)
-            const nameA = a.children[1].textContent.trim().toLowerCase();
-            const nameB = b.children[1].textContent.trim().toLowerCase();
-            return nameA.localeCompare(nameB);
-          }
-
-          return descending ? valB - valA : valA - valB;
-        });
-
-        // volver a agregar filas ordenadas
-        rows.forEach(row => table.appendChild(row));
-
-        descending = !descending; // alternar orden
+        if (valA === valB) {
+          const nameA = a.children[1].textContent.trim().toLowerCase();
+          const nameB = b.children[1].textContent.trim().toLowerCase();
+          return nameA.localeCompare(nameB);
+        }
+        return descending ? valB - valA : valA - valB;
       });
-    }
-  });
+
+      rows.forEach(row => table.appendChild(row));
+
+      // Actualizar flechas
+      headers.forEach(h => h.classList.remove("sorted-asc","sorted-desc"));
+      th.classList.add(descending ? "sorted-desc" : "sorted-asc");
+
+      descending = !descending;
+    });
+  }
+});
 </script>
+
 
 </body>
 </html>
