@@ -123,12 +123,17 @@
         </table>
       </div>
     </section>
+<h2 id="calendario" style="text-align:center; cursor:pointer;">
+  Calendario
+</h2>
+<img id="calendario-img" src="https://i.imgur.com/tuImagen.png" alt="Calendario" style="display:none; width:100%; max-width:600px; margin: 20px auto; display:block;">
 
   </main>
 
   <footer>
     <p>© 2026 - Liga Xposers - Vicfut</p>
   </footer>
+
   
 <script>
 const table = document.querySelector("table tbody");
@@ -165,6 +170,14 @@ headers.forEach((th, index) => {
       descending = !descending;
     });
   }
+});
+
+// Script para mostrar/ocultar la imagen del Calendario
+const calendario = document.getElementById("calendario");
+const calendarioImg = document.getElementById("calendario-img");
+
+calendario.addEventListener("click", () => {
+  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
 });
 </script>
 
