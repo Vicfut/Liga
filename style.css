@@ -49,7 +49,7 @@ header p {
   gap: 8px;
   flex-wrap: nowrap;
   overflow-x: auto;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 
 .club {
