@@ -127,6 +127,34 @@
   <footer>
     <p>© 2026 - Liga Xposers</p>
   </footer>
+<script>
+  // Obtener la tabla
+  const table = document.querySelector("table tbody");
+  const thGF = document.querySelector("table thead th:nth-child(7)"); // columna GF
+
+  // Bandera para alternar asc/desc
+  let descending = true;
+
+  thGF.style.cursor = "pointer"; // mostrar que es clicable
+
+  thGF.addEventListener("click", () => {
+    // Obtener todas las filas del tbody
+    const rows = Array.from(table.querySelectorAll("tr"));
+
+    // Ordenar por GF (columna 7)
+    rows.sort((a, b) => {
+      const aGF = parseInt(a.children[6].textContent); // índice 6 = GF
+      const bGF = parseInt(b.children[6].textContent);
+      return descending ? bGF - aGF : aGF - bGF;
+    });
+
+    // Volver a agregar las filas ordenadas al tbody
+    rows.forEach(row => table.appendChild(row));
+
+    // Cambiar dirección para el próximo clic
+    descending = !descending;
+  });
+</script>
 
 </body>
 </html>
