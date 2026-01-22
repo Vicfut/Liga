@@ -126,15 +126,11 @@ table .logo {
   vertical-align: middle; /* centra verticalmente la imagen con el nombre */
 }
 
-/* Alinear verticalmente los logos y nombres */
+/* Alinear verticalmente solo los nombres de los equipos */
 table td:nth-child(2) {
-  text-align: left;          /* mantener nombres a la izquierda */
-  vertical-align: middle;    /* centra verticalmente el contenido */
-  display: flex;             /* usar flexbox para alinear logo y texto */
-  align-items: center;       /* centra verticalmente dentro del td */
-  gap: 5px;                  /* espacio entre logo y nombre */
+  text-align: left;       /* nombres a la izquierda */
+  vertical-align: middle; /* centra el texto verticalmente respecto al logo */
 }
-
 
 /* Flechas de ordenación */
 .sort-arrows {
