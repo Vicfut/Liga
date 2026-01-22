@@ -124,4 +124,23 @@ table .logo {
 table td:nth-child(2) {
   text-align: left;
 }
+.sort-arrows {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #bbbbbb;
+  cursor: pointer;
+}
+
+.sorted-asc .sort-arrows::after {
+  content: "▼";   /* solo flecha abajo al ordenar asc */
+}
+
+.sorted-desc .sort-arrows::after {
+  content: "▼";   /* solo flecha abajo al ordenar desc */
+}
+
+.sorted-asc .sort-arrows::before,
+.sorted-desc .sort-arrows::before {
+  content: "";   /* oculta la flecha arriba */
+}
 
