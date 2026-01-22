@@ -42,16 +42,19 @@ header p {
   object-fit: contain; /* mantiene la proporción real de la imagen */
 }
 
-/* Cuadros de clubes */
 .clubs {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  margin: 20px auto 0;
+  justify-content: flex-start;   /* importante en móvil */
+  overflow-x: auto;              /* permite deslizar */
+  padding: 10px;
+  scrollbar-width: none;         /* Firefox */
 }
+
+.clubs::-webkit-scrollbar {
+  display: none;                 /* Chrome / Safari */
+}
+
 
 .club {
   width: 48px;
