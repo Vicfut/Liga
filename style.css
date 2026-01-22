@@ -34,8 +34,8 @@ header p {
 
 /* Logo del título */
 .header-logo {
-  width: 325px;       /* ancho fijo */
-  height: 290px;      /* alto fijo */
+  width: 225px;       /* ancho fijo */
+  height: 1500px;      /* alto fijo */
   margin-right: 15px;
   vertical-align: middle;
   max-width: none;    /* ignora cualquier max-width heredada */
