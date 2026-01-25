@@ -253,30 +253,38 @@ headers.forEach((th, index) => {
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
 
-        // Si clicamos PJ, DG o Pts usamos desempate por Pts > DG > G
-        if ([2,8,9].includes(index)) { 
-          // Desempate: Pts > DG > G
+        // Especial para PJ: desempate por Pts > DG
+        if (index === 2) {
+          if (valA !== valB) return descending ? valB - valA : valA - valB;
+
+          // Primer desempate: Puntos
           const ptsA = parseInt(a.children[9].textContent);
           const ptsB = parseInt(b.children[9].textContent);
           if (ptsA !== ptsB) return descending ? ptsB - ptsA : ptsA - ptsB;
 
+          // Segundo desempate: Diferencia de goles
           const dgA = parseInt(a.children[8].textContent);
           const dgB = parseInt(b.children[8].textContent);
-          if (dgA !== dgB) return descending ? dgB - dgA : dgA - dgB;
+          return descending ? dgB - dgA : dgA - dgB;
+        }
 
+        // Para DG y Pts, ordenar normalmente descendente
+        if ([8,9].includes(index)) {
+          if (valA !== valB) return descending ? valB - valA : valA - valB;
+
+          // Si empate, desempatar por victorias (G)
           const gA = parseInt(a.children[3].textContent);
           const gB = parseInt(b.children[3].textContent);
           return descending ? gB - gA : gA - gB;
         }
 
-        // Si son iguales, ordenar alfabéticamente por nombre
-        if (valA === valB) {
-          const nameA = a.children[1].textContent.trim().toLowerCase();
-          const nameB = b.children[1].textContent.trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        }
+        // Para otras columnas numéricas, orden normal descendente
+        if (valA !== valB) return descending ? valB - valA : valA - valB;
 
-        return descending ? valB - valA : valA - valB;
+        // Si son iguales, ordenar alfabéticamente por nombre
+        const nameA = a.children[1].textContent.trim().toLowerCase();
+        const nameB = b.children[1].textContent.trim().toLowerCase();
+        return nameA.localeCompare(nameB);
       });
 
       rows.forEach(row => table.appendChild(row));
@@ -293,7 +301,6 @@ calendarioTitle.addEventListener("click", () => {
   calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
 });
 </script>
-
 
 
 
