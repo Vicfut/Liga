@@ -237,7 +237,7 @@
 const table = document.querySelector("table tbody");
 const headers = document.querySelectorAll("table thead th");
 
-// Índices de todas las columnas numéricas
+// Columnas numéricas: PJ=2, G=3, E=4, P=5, GF=6, GC=7, DG=8, Pts=9
 const numericCols = [2,3,4,5,6,7,8,9];
 
 headers.forEach((th, index) => {
@@ -250,8 +250,24 @@ headers.forEach((th, index) => {
       const rows = Array.from(table.querySelectorAll("tr"));
 
       rows.sort((a, b) => {
-        const valA = parseInt(a.children[index].textContent);
-        const valB = parseInt(b.children[index].textContent);
+        let valA = parseInt(a.children[index].textContent);
+        let valB = parseInt(b.children[index].textContent);
+
+        // Si clicamos PJ, DG o Pts usamos desempate por Pts > DG > G
+        if ([2,8,9].includes(index)) { 
+          // Desempate: Pts > DG > G
+          const ptsA = parseInt(a.children[9].textContent);
+          const ptsB = parseInt(b.children[9].textContent);
+          if (ptsA !== ptsB) return descending ? ptsB - ptsA : ptsA - ptsB;
+
+          const dgA = parseInt(a.children[8].textContent);
+          const dgB = parseInt(b.children[8].textContent);
+          if (dgA !== dgB) return descending ? dgB - dgA : dgA - dgB;
+
+          const gA = parseInt(a.children[3].textContent);
+          const gB = parseInt(b.children[3].textContent);
+          return descending ? gB - gA : gA - gB;
+        }
 
         // Si son iguales, ordenar alfabéticamente por nombre
         if (valA === valB) {
@@ -264,26 +280,20 @@ headers.forEach((th, index) => {
       });
 
       rows.forEach(row => table.appendChild(row));
-
       descending = !descending;
     });
   }
 });
 
+// Mostrar/ocultar calendario
+const calendarioTitle = document.getElementById("calendario");
+const calendarioImg = document.getElementById("calendario-img");
 
-  const calendarioTitle = document.getElementById("calendario");
-  const calendarioImg = document.getElementById("calendario-img");
-
-  calendarioTitle.addEventListener("click", () => {
-    if (calendarioImg.style.display === "none") {
-      calendarioImg.style.display = "block";
-    } else {
-      calendarioImg.style.display = "none";
-    }
-  });
-
-
+calendarioTitle.addEventListener("click", () => {
+  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
+});
 </script>
+
 
 
 
