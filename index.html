@@ -242,10 +242,28 @@ headers.forEach((th, index) => {
       const rows = Array.from(table.querySelectorAll("tr"));
 
       rows.sort((a, b) => {
+        // Si es la columna "Pts", orden especial con DG y PJ
+        if (index === 9) {
+          const ptsA = parseInt(a.children[9].textContent);
+          const ptsB = parseInt(b.children[9].textContent);
+          const dgA = parseInt(a.children[8].textContent.replace("+",""));
+          const dgB = parseInt(b.children[8].textContent.replace("+",""));
+          const pjA = parseInt(a.children[2].textContent);
+          const pjB = parseInt(b.children[2].textContent);
+
+          if (ptsA !== ptsB) return descending ? ptsB - ptsA : ptsA - ptsB;
+          if (dgA !== dgB) return descending ? dgB - dgA : dgA - dgB;
+          if (pjA !== pjB) return descending ? pjB - pjA : pjA - pjB;
+
+          const nameA = a.children[1].textContent.trim().toLowerCase();
+          const nameB = b.children[1].textContent.trim().toLowerCase();
+          return nameA.localeCompare(nameB);
+        }
+
+        // Para todas las demás columnas
         const valA = parseInt(a.children[index].textContent);
         const valB = parseInt(b.children[index].textContent);
 
-        // Si son iguales, ordenar alfabéticamente por nombre
         if (valA === valB) {
           const nameA = a.children[1].textContent.trim().toLowerCase();
           const nameB = b.children[1].textContent.trim().toLowerCase();
@@ -266,13 +284,10 @@ const calendarioTitle = document.getElementById("calendario");
 const calendarioImg = document.getElementById("calendario-img");
 
 calendarioTitle.addEventListener("click", () => {
-  if (calendarioImg.style.display === "none") {
-    calendarioImg.style.display = "block";
-  } else {
-    calendarioImg.style.display = "none";
-  }
+  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
 });
 </script>
+
 
 </body>
 </html>
