@@ -253,32 +253,44 @@ headers.forEach((th, index) => {
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
 
-        // Especial para PJ: desempate por Pts > DG
-        if (index === 2) {
+        // Orden especial según columna
+        if (index === 2) { // PJ
           if (valA !== valB) return descending ? valB - valA : valA - valB;
 
-          // Primer desempate: Puntos
           const ptsA = parseInt(a.children[9].textContent);
           const ptsB = parseInt(b.children[9].textContent);
           if (ptsA !== ptsB) return descending ? ptsB - ptsA : ptsA - ptsB;
 
-          // Segundo desempate: Diferencia de goles
           const dgA = parseInt(a.children[8].textContent);
           const dgB = parseInt(b.children[8].textContent);
           return descending ? dgB - dgA : dgA - dgB;
         }
 
-        // Para DG y Pts, ordenar normalmente descendente
-        if ([8,9].includes(index)) {
+        if (index === 9) { // Pts
           if (valA !== valB) return descending ? valB - valA : valA - valB;
 
-          // Si empate, desempatar por victorias (G)
+          const dgA = parseInt(a.children[8].textContent);
+          const dgB = parseInt(b.children[8].textContent);
+          if (dgA !== dgB) return descending ? dgB - dgA : dgA - dgB;
+
           const gA = parseInt(a.children[3].textContent);
           const gB = parseInt(b.children[3].textContent);
           return descending ? gB - gA : gA - gB;
         }
 
-        // Para otras columnas numéricas, orden normal descendente
+        if (index === 8) { // DG
+          if (valA !== valB) return descending ? valB - valA : valA - valB;
+
+          const ptsA = parseInt(a.children[9].textContent);
+          const ptsB = parseInt(b.children[9].textContent);
+          if (ptsA !== ptsB) return descending ? ptsB - ptsA : ptsA - ptsB;
+
+          const gA = parseInt(a.children[3].textContent);
+          const gB = parseInt(b.children[3].textContent);
+          return descending ? gB - gA : gA - gB;
+        }
+
+        // Para otras columnas numéricas
         if (valA !== valB) return descending ? valB - valA : valA - valB;
 
         // Si son iguales, ordenar alfabéticamente por nombre
