@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
   background-color: #1f1f1f;
-  padding: 30px 20px 5px;
+  padding: 30px 20px 5px; /* más compacto, reduce espacio inferior */
   text-align: center;
 }
 
@@ -26,7 +26,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 header p {
@@ -62,18 +62,85 @@ header p {
 
 /* MÓVIL */
 @media (max-width: 768px) {
+  /* Header compacto */
+  header {
+    padding: 20px 10px 5px; 
+  }
+  header h1 {
+    font-size: 24px;
+  }
+  header p {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .header-logo {
+    width: 150px;
+    height: auto;
+  }
+
+  /* Clubs scrollable */
   .clubs {
     justify-content: flex-start;
     overflow-x: auto;
-    padding: 10px;
+    padding: 5px;
   }
-
   .clubs::-webkit-scrollbar {
     display: none;
   }
-
   .clubs {
     scrollbar-width: none;
+  }
+  .club {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Tabla scrollable y más compacta */
+  .table-container {
+    overflow-x: auto;
+    margin-bottom: 15px;
+  }
+  table {
+    font-size: 12px;
+  }
+  .logo-box {
+    width: 28px;
+    height: 28px;
+  }
+  .team-name {
+    font-size: 12px;
+  }
+
+  /* Main */
+  main {
+    padding: 0 10px;
+  }
+
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  /* Sección Calendario - Jornadas */
+  .extras {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center;
+  }
+  #calendario-img {
+    max-width: 100%;
+    height: auto;
+  }
+  .jornada-btn {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  /* Footer más compacto */
+  footer {
+    font-size: 12px;
+    padding: 10px;
   }
 }
 
@@ -261,5 +328,3 @@ footer {
 .jornada-btn:hover {
   background-color: #555;
 }
-
-
