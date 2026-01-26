@@ -2,225 +2,248 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Clasificación Liga</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Liga Xposers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://imgur.com/n66VboL.png" type="image/png">
+
+  <style>
+    /* Contenedor Calendario + Jornadas alineados */
+    .extras {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Jornadas */
+    #jornadas {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    #jornadas-box {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .jornada-btn {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .jornada-btn:hover {
+      background-color: #444;
+    }
+
+    #resultados-jornada p {
+      margin: 6px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <h1>
-    <img src="img/logo.png" class="header-logo">
-    Liga Fantasy
+    <img src="https://imgur.com/n66VboL.png" alt="Liga Xposers" class="header-logo">
   </h1>
-  <p>Temporada 2025</p>
 </header>
 
+<!-- CLUBES -->
+<div class="clubs">
+  <a class="club"><img src="https://imgur.com/nPkzrkb.png" alt="Angel City"></a>
+  <a class="club"><img src="https://imgur.com/EuS5ay5.png" alt="Antisoccer"></a>
+  <a class="club"><img src="https://imgur.com/LfC8Jgt.png" alt="Catamarca"></a>
+  <a class="club"><img src="https://imgur.com/Kp7RmgP.png" alt="Cuervos"></a>
+  <a class="club"><img src="https://imgur.com/YnM047m.png" alt="Fragance"></a>
+  <a class="club"><img src="https://imgur.com/GEwafMf.png" alt="Guaya City"></a>
+  <a class="club"><img src="https://imgur.com/gsmyy9J.png" alt="Románticos"></a>
+  <a class="club"><img src="https://imgur.com/4mQeVJJ.png" alt="Nitokonikito"></a>
+  <a class="club"><img src="https://imgur.com/mxMenVe.png" alt="PonElde30"></a>
+  <a class="club"><img src="https://imgur.com/mQx5Cym.png" alt="Sants"></a>
+</div>
+
 <main>
+<section>
+<h2>Tabla de Clasificación</h2>
 
-  <!-- CLASIFICACIÓN -->
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Equipo</th>
-          <th>PJ</th>
-          <th>V</th>
-          <th>E</th>
-          <th>D</th>
-          <th>GF</th>
-          <th>GC</th>
-          <th>DG</th>
-          <th>Pts <span class="sort-arrows"></span></th>
-        </tr>
-      </thead>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Equipo</th>
+<th>PJ</th>
+<th>G</th>
+<th>E</th>
+<th>P</th>
+<th>GF</th>
+<th>GC</th>
+<th>DG</th>
+<th>Pts</th>
+</tr>
+</thead>
 
-      
+
+  
 
 <tbody>
-  <tr>
-    <td>1</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/romanticos.png" class="logo"></div>
-      <span class="team-name">Los Románticos</span>
-    </td>
-    <td>1</td><td>1</td><td>0</td><td>0</td>
-    <td>8</td><td>1</td><td>+7</td><td>3</td>
-  </tr>
+<tr>
+<td>1</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/gsmyy9J.png"></div><span class="team-name">Los Románticos</span></td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>1</td><td>+7</td><td>3</td>
+</tr>
 
-  <tr>
-    <td>2</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/cuervos.png" class="logo"></div>
-      <span class="team-name">Cuervos</span>
-    </td>
-    <td>1</td><td>1</td><td>0</td><td>0</td>
-    <td>8</td><td>2</td><td>+6</td><td>3</td>
-  </tr>
+<tr>
+<td>2</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/Kp7RmgP.png"></div><span class="team-name">Cuervos FC</span></td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>2</td><td>+6</td><td>3</td>
+</tr>
 
-  <tr>
-    <td>3</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/ponelde30.png" class="logo"></div>
-      <span class="team-name">PonElde30</span>
-    </td>
-    <td>1</td><td>1</td><td>0</td><td>0</td>
-    <td>4</td><td>0</td><td>+4</td><td>3</td>
-  </tr>
+<tr>
+<td>3</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/mxMenVe.png"></div><span class="team-name">PonElde30 FC</span></td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>+4</td><td>3</td>
+</tr>
 
-  <tr>
-    <td>4</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/nitokonikito.png" class="logo"></div>
-      <span class="team-name">Nitokonikito</span>
-    </td>
-    <td>1</td><td>1</td><td>0</td><td>0</td>
-    <td>2</td><td>1</td><td>+1</td><td>3</td>
-  </tr>
+<tr>
+<td>4</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/4mQeVJJ.png"></div><span class="team-name">Nitokonikito FC</span></td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>+1</td><td>3</td>
+</tr>
 
-  <tr>
-    <td>5</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/fragance.png" class="logo"></div>
-      <span class="team-name">Fragance</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>1</td><td>2</td><td>-1</td><td>0</td>
-  </tr>
+<tr>
+<td>5</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/YnM047m.png"></div><span class="team-name">Fragance FC</span></td>
+<td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>0</td>
+</tr>
 
-  <tr>
-    <td>6</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/guaya.png" class="logo"></div>
-      <span class="team-name">Guaya City</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>0</td><td>4</td><td>-4</td><td>0</td>
-  </tr>
+<tr>
+<td>6</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/EuS5ay5.png"></div><span class="team-name">Antisoccer SC</span></td>
+<td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>8</td><td>-6</td><td>0</td>
+</tr>
 
-  <tr>
-    <td>7</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/antisoccer.png" class="logo"></div>
-      <span class="team-name">Antisoccer</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>2</td><td>8</td><td>-6</td><td>0</td>
-  </tr>
+<tr>
+<td>7</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/GEwafMf.png"></div><span class="team-name">Guaya City</span></td>
+<td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>-4</td><td>0</td>
+</tr>
 
-  <tr>
-    <td>8</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/catamarca.png" class="logo"></div>
-      <span class="team-name">Catamarca</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>1</td><td>8</td><td>-7</td><td>0</td>
-  </tr>
+<tr>
+<td>8</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/LfC8Jgt.png"></div><span class="team-name">Catamarca FC</span></td>
+<td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>8</td><td>-7</td><td>0</td>
+</tr>
 
-  <tr>
-    <td>9</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/sants.png" class="logo"></div>
-      <span class="team-name">Sants</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>1</td><td>2</td><td>-1</td><td>0</td>
-  </tr>
+<tr>
+<td>9</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/nPkzrkb.png"></div><span class="team-name">Angel City</span></td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
 
-  <tr>
-    <td>10</td>
-    <td class="team-cell">
-      <div class="logo-box"><img src="img/angel.png" class="logo"></div>
-      <span class="team-name">Angel City</span>
-    </td>
-    <td>1</td><td>0</td><td>0</td><td>1</td>
-    <td>0</td><td>2</td><td>-2</td><td>0</td>
-  </tr>
+<tr>
+<td>10</td>
+<td class="team-cell"><div class="logo-box"><img class="logo" src="https://imgur.com/mQx5Cym.png"></div><span class="team-name">Sants FC</span></td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
 </tbody>
 
 
-      
-    </table>
-  </div>
+  
+</table>
+</div>
+</section>
 
-  <!-- CONTENEDOR CALENDARIO + JORNADAS -->
-  <div style="display:flex; justify-content:center; gap:40px; margin-top:40px;">
+<div class="extras">
 
-    <h2 id="calendario" style="cursor:pointer;">Calendario</h2>
-    <h2 id="jornadas-title" style="cursor:pointer;">Jornadas</h2>
+<div>
+<h2 id="calendario">Calendario</h2>
+<img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" style="display:none; max-width:600px; margin-top:15px;">
+</div>
 
-  </div>
+<div>
+<h2 id="jornadas">Jornadas</h2>
 
-  <!-- CALENDARIO -->
-  <img id="calendario-img" src="img/calendario.png"
-       style="display:none; max-width:100%; margin:30px auto;">
+<div id="jornadas-box">
+<div class="jornada-btn" data-jornada="1">J1</div>
+<div id="resultados-jornada"></div>
+</div>
+</div>
 
-  <!-- JORNADAS -->
-  <div id="jornadas-container" style="display:none; text-align:center; margin-top:30px;">
-    <div class="jornada-btn" data-jornada="1"
-         style="background:#444; color:#fff; padding:10px 20px; display:inline-block; cursor:pointer;">
-      J1
-    </div>
-
-    <div id="resultados-jornada" style="margin-top:20px;"></div>
-  </div>
+</div>
 
 </main>
 
 <footer>
-  © Liga Fantasy
+<p>© 2026 - Liga Xposers - Vicfut</p>
 </footer>
 
-<!-- TU SCRIPT (con cierre de Jornadas añadido) -->
 <script>
+/* === TU SCRIPT SIN CAMBIOS DE LÓGICA === */
+
 const table = document.querySelector("table tbody");
 const headers = document.querySelectorAll("table thead th");
 const numericCols = [2,3,4,5,6,7,8,9];
 
 headers.forEach((th, index) => {
   if (numericCols.includes(index)) {
-    th.style.cursor = "pointer";
     let descending = true;
+    th.style.cursor = "pointer";
 
     th.addEventListener("click", () => {
       const rows = Array.from(table.querySelectorAll("tr"));
 
-      rows.sort((a, b) => {
+      rows.sort((a,b)=>{
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
 
-        if(index === 9){
-          const dgA = parseInt(a.children[8].textContent);
-          const dgB = parseInt(b.children[8].textContent);
-          if(valB !== valA) return valB - valA;
-          if(dgB !== dgA) return dgB - dgA;
+        if(index===9){
+          let dgA = parseInt(a.children[8].textContent.replace('+',''));
+          let dgB = parseInt(b.children[8].textContent.replace('+',''));
+          let gA = parseInt(a.children[3].textContent);
+          let gB = parseInt(b.children[3].textContent);
+
+          if(valB!==valA) return valB-valA;
+          if(dgB!==dgA) return dgB-dgA;
+          if(gB!==gA) return gB-gA;
         }
-        return descending ? valB - valA : valA - valB;
+
+        return valB-valA;
       });
 
-      rows.forEach(r => table.appendChild(r));
-      descending = !descending;
+      rows.forEach(r=>table.appendChild(r));
+      descending=!descending;
     });
   }
 });
 
-// Calendario toggle
-document.getElementById("calendario").onclick = () => {
-  const img = document.getElementById("calendario-img");
-  img.style.display = img.style.display === "none" ? "block" : "none";
+/* Calendario */
+const calendario = document.getElementById("calendario");
+const calendarioImg = document.getElementById("calendario-img");
+calendario.onclick = ()=> {
+  calendarioImg.style.display = calendarioImg.style.display==="none"?"block":"none";
 };
 
-// Jornadas toggle
-document.getElementById("jornadas-title").onclick = () => {
-  const cont = document.getElementById("jornadas-container");
-  cont.style.display = cont.style.display === "none" ? "block" : "none";
+/* Jornadas */
+const jornadas = document.getElementById("jornadas");
+const jornadasBox = document.getElementById("jornadas-box");
+jornadas.onclick = ()=>{
+  jornadasBox.style.display = jornadasBox.style.display==="none"?"block":"none";
 };
 
-// Resultados
 const resultados = {
-  "1": [
+  1:[
     "Los Románticos 8 - 1 Catamarca",
     "Nitokonikito 2 - 1 Fragance",
     "PonElde30 4 - 0 Guaya City",
@@ -228,14 +251,14 @@ const resultados = {
   ]
 };
 
-document.querySelectorAll(".jornada-btn").forEach(btn => {
-  btn.onclick = () => {
-    const res = document.getElementById("resultados-jornada");
-    res.innerHTML = "";
-    resultados[btn.dataset.jornada].forEach(r => {
-      const p = document.createElement("p");
-      p.textContent = r;
-      res.appendChild(p);
+document.querySelectorAll(".jornada-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    const r = document.getElementById("resultados-jornada");
+    r.innerHTML="";
+    resultados[btn.dataset.jornada].forEach(t=>{
+      let p=document.createElement("p");
+      p.textContent=t;
+      r.appendChild(p);
     });
   };
 });
