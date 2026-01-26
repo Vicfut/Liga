@@ -161,7 +161,7 @@ footer {
 /* Contenedores internos */
 .calendario-container,
 .jornadas-container {
-  min-width: 300px;
+  min-width: 300px; /* mínimo para que quepan lado a lado */
   max-width: 400px;
   display: flex;
   flex-direction: column;
