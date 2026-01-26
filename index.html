@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Liga Xposers</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="https://imgur.com/n66VboL.png" type="image/png">
+  <meta charset="UTF-8">
+  <title>Liga Xposers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://imgur.com/n66VboL.png" type="image/png">
 </head>
 <body>
+
 <header>
   <h1>
     <img src="https://imgur.com/n66VboL.png" alt="Liga Xposers" class="header-logo">
@@ -28,6 +29,7 @@
 </div>
 
 <main>
+  <!-- Tabla de Clasificación -->
   <section>
     <h2>Tabla de Clasificación</h2>
     <div class="table-container">
@@ -49,7 +51,7 @@
             </td>
             <td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>1</td><td>7</td><td>3</td>
           </tr>
-        <tr>
+          <tr>
             <td>2</td>
             <td>
               <div class="team-cell">
@@ -144,13 +146,12 @@
     </div>
   </section>
 
-  <!-- Sección Calendario y Jornadas -->
-  <div class="extras">
+  <!-- Calendario y Jornadas -->
+  <section class="top-section">
     <div class="calendario-container">
       <h2 id="calendario">Calendario</h2>
       <img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" style="display:none; max-width:600px; margin-top:15px;">
     </div>
-
     <div class="jornadas-container">
       <h2 id="jornadas">Jornadas</h2>
       <div id="jornadas-box" style="display:none; margin-top:10px; text-align:center;">
@@ -158,13 +159,13 @@
         <div id="resultados-jornada" style="margin-top:10px;"></div>
       </div>
     </div>
-  </div>
-
+  </section>
 </main>
 
 <footer>
   <p>© 2026 - Liga Xposers - Vicfut</p>
 </footer>
+
 
 <script>
 // ----------------------
