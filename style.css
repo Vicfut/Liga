@@ -211,9 +211,9 @@ footer {
 .top-section {
   display: flex;
   justify-content: center; /* Centra ambos elementos en la página */
-  gap: 50px; /* Espacio entre Calendario y Jornadas */
+  gap: 80px; /* Espacio entre Calendario y Jornadas */
   align-items: flex-start; /* Alinea la parte superior */
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 /* Calendario */
