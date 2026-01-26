@@ -35,11 +35,10 @@ header p {
 }
 
 /* Logo del título */
-
 .header-logo {
-  width: 235px;   /* ancho deseado */
-  height: 210px;  /* alto deseado */
-  object-fit: contain; /* mantiene la proporción real de la imagen */
+  width: 235px;
+  height: 210px;
+  object-fit: contain;
 }
 
 /* CONTENEDOR GENERAL */
@@ -49,8 +48,6 @@ header p {
   gap: 8px;
   flex-wrap: nowrap;
   margin: 20px auto 0;
-
-  /* 👇 CLAVE */
   width: fit-content;
   max-width: 100%;
 }
@@ -79,9 +76,6 @@ header p {
     scrollbar-width: none;
   }
 }
-
-
-
 
 .club {
   width: 48px;
@@ -112,17 +106,16 @@ main {
 }
 
 h2 {
-  margin-top: 25px;   /* margen superior */
-  margin-bottom: 20px; /* margen inferior */
+  margin-top: 25px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 /* Tabla */
 .table-container {
   overflow-x: auto;
-  margin-bottom: 60px; /* espacio antes del Calendario */
+  margin-bottom: 60px;
 }
-
 
 table {
   width: 100%;
@@ -148,7 +141,6 @@ tbody tr:hover {
   background-color: #2f2f2f;
 }
 
-
 /* Flechas de ordenación */
 .sort-arrows {
   display: inline-block;
@@ -169,13 +161,11 @@ tbody tr:hover {
   color: #bbbbbb;
 }
 
-/* Al ordenar, ocultar flecha arriba */
 .sorted-asc .sort-arrows::before,
 .sorted-desc .sort-arrows::before {
   display: none;
 }
 
-/* Flecha abajo resaltada cuando activa */
 .sorted-asc .sort-arrows::after,
 .sorted-desc .sort-arrows::after {
   color: #ffffff;
@@ -190,32 +180,86 @@ footer {
   color: #aaaaaa;
   font-size: 14px;
 }
+
 /* Celda equipo: logo + nombre en horizontal */
 .team-cell {
   display: flex;
-  align-items: center;   /* centra verticalmente */
-  gap: 12px;             /* espacio entre escudo y nombre */
+  align-items: center;
+  gap: 12px;
 }
 
-/* Caja fija para TODOS los escudos */
 .logo-box {
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;        /* evita que se aplaste */
+  flex-shrink: 0;
 }
 
-/* Escudos normalizados */
 .logo {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* Nombre del equipo */
 .team-name {
-  white-space: nowrap;  /* evita saltos de línea */
+  white-space: nowrap;
 }
 
+/* ---------- NUEVAS REGLAS PARA CALENDARIO + JORNADAS ---------- */
+.top-section {
+  display: flex;
+  justify-content: center; /* Centra ambos elementos en la página */
+  gap: 50px; /* Espacio entre Calendario y Jornadas */
+  align-items: flex-start; /* Alinea la parte superior */
+  margin-top: 40px;
+}
+
+/* Calendario */
+.calendario-container h2 {
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Jornadas */
+.jornadas-container {
+  position: relative;
+}
+
+.jornadas-container input[type="checkbox"] {
+  display: none;
+}
+
+.jornadas-label {
+  display: inline-block;
+  background-color: #333; /* Gris oscuro */
+  color: white; /* Letras blancas */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.jornadas-list {
+  display: none;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.jornadas-container input[type="checkbox"]:checked + .jornadas-label + .jornadas-list {
+  display: block;
+}
+
+.jornada-box {
+  display: inline-block;
+  background-color: #333; /* Gris oscuro */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.jornada-box:hover {
+  background-color: #555;
+}
