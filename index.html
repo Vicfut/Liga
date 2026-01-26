@@ -7,47 +7,21 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://imgur.com/n66VboL.png" type="image/png">
+
   <style>
     /* Estilos para Jornadas */
-    #jornadas-container {
-      position: relative;
+    .jornada-box {
       display: inline-block;
-    }
-
-    #jornadas-btn {
       background-color: #333; /* Gris oscuro */
       color: white; /* Letras blancas */
       padding: 10px 20px;
-      border: none;
+      margin: 5px;
       cursor: pointer;
-      font-size: 16px;
       border-radius: 5px;
     }
 
-    #jornadas-dropdown {
-      display: none;
-      position: absolute;
-      background-color: #444; /* Fondo gris más oscuro para el desplegable */
-      min-width: 120px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      margin-top: 5px;
-      border-radius: 5px;
-    }
-
-    #jornadas-dropdown button {
-      width: 100%;
+    .jornada-box:hover {
       background-color: #555;
-      color: white;
-      padding: 10px;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    #jornadas-dropdown button:hover {
-      background-color: #666;
     }
   </style>
 </head>
@@ -229,17 +203,20 @@
 
   <div style="display:flex; justify-content:center; gap:20px; margin-top:40px;">
 
+    <!-- Calendario -->
     <div>
       <h2 id="calendario" style="text-align:center; cursor:pointer;">Calendario</h2>
-      <img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" alt="Calendario" style="display:none; width:100%; max-width:600px; margin: 20px auto;">
+      <img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" 
+           alt="Calendario" style="display:none; width:100%; max-width:600px; margin: 20px auto;">
     </div>
 
-    <div id="jornadas-container">
-      <button id="jornadas-btn">Jornadas ▼</button>
-      <div id="jornadas-dropdown">
-        <button class="jornada-btn" data-jornada="1">J1</button>
+    <!-- Jornadas -->
+    <div>
+      <h2 id="jornadas" style="text-align:center; cursor:pointer; margin:0;">Jornadas</h2>
+      <div id="jornadas-list" style="display:none; margin-top:10px; text-align:center;">
+        <div class="jornada-box" data-jornada="1">J1</div>
       </div>
-      <div id="resultados-jornada" style="margin-top:10px;"></div>
+      <div id="resultados-jornada" style="margin-top:10px; text-align:center;"></div>
     </div>
 
   </div>
@@ -260,7 +237,6 @@ const numericCols = [2,3,4,5,6,7,8,9];
 headers.forEach((th, index) => {
   if (numericCols.includes(index)) {
     th.style.cursor = "pointer";
-
     let descending = true;
 
     th.addEventListener("click", () => {
@@ -270,7 +246,7 @@ headers.forEach((th, index) => {
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
 
-        if(index === 9){
+        if(index === 9){ // Pts
           const dgA = parseInt(a.children[8].textContent.replace('+',''));
           const dgB = parseInt(b.children[8].textContent.replace('+',''));
           const pjA = parseInt(a.children[2].textContent);
@@ -279,11 +255,10 @@ headers.forEach((th, index) => {
           if(valB !== valA) return descending ? valB - valA : valA - valB;
           if(dgB !== dgA) return dgB - dgA;
           if(pjB !== pjA) return pjB - pjA;
-
           return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
         }
 
-        if(index === 2){
+        if(index === 2){ // PJ
           const ptsA = parseInt(a.children[9].textContent);
           const ptsB = parseInt(b.children[9].textContent);
           const dgA = parseInt(a.children[8].textContent.replace('+',''));
@@ -292,7 +267,6 @@ headers.forEach((th, index) => {
           if(valB !== valA) return descending ? valB - valA : valA - valB;
           if(ptsB !== ptsA) return ptsB - ptsA;
           if(dgB !== dgA) return dgB - dgA;
-
           return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
         }
 
@@ -311,27 +285,31 @@ headers.forEach((th, index) => {
 // Calendario
 const calendarioTitle = document.getElementById("calendario");
 const calendarioImg = document.getElementById("calendario-img");
-
 calendarioTitle.addEventListener("click", () => {
   calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
 });
 
-// Jornadas desplegable
-const jornadasBtn = document.getElementById("jornadas-btn");
-const jornadasDropdown = document.getElementById("jornadas-dropdown");
-jornadasBtn.addEventListener("click", () => {
-  jornadasDropdown.style.display = jornadasDropdown.style.display === "block" ? "none" : "block";
+// Jornadas
+const jornadasTitle = document.getElementById("jornadas");
+const jornadasList = document.getElementById("jornadas-list");
+jornadasTitle.addEventListener("click", () => {
+  jornadasList.style.display = jornadasList.style.display === "none" ? "block" : "none";
 });
 
-// Resultados de la jornada
-const jornadaBtns = document.querySelectorAll(".jornada-btn");
+// Resultados por jornada
+const jornadaBoxes = document.querySelectorAll(".jornada-box");
 const resultadosJornada = document.getElementById("resultados-jornada");
 
-jornadaBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const jornada = btn.getAttribute("data-jornada");
+jornadaBoxes.forEach(box => {
+  box.addEventListener("click", () => {
+    const jornada = box.getAttribute("data-jornada");
     const resultados = {
-      "1": ["Los Románticos 8 - 1 Catamarca", "Nitokonikito 2 - 1 Fragance", "PonElde30 4 - 0 Guaya City", "Cuervos 8 - 2 Antisoccer"]
+      "1": [
+        "Los Románticos 8 - 1 Catamarca",
+        "Nitokonikito 2 - 1 Fragance",
+        "PonElde30 4 - 0 Guaya City",
+        "Cuervos 8 - 2 Antisoccer"
+      ]
     };
     resultadosJornada.innerHTML = "";
     if(resultados[jornada]){
