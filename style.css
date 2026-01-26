@@ -95,22 +95,26 @@ footer { background-color: #1f1f1f; text-align: center; padding: 15px; margin-to
 /* Calendario + Jornadas en paralelo */
 .extras {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 80px;
+  justify-content: center;  /* centra los dos bloques */
+  align-items: flex-start;  /* alineación superior */
+  gap: 80px;                /* espacio entre Calendario y Jornadas */
   margin-top: 25px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;         /* NO permitir que se envuelvan en escritorio */
 }
 
+
 .calendario-container, .jornadas-container {
-  flex: 1;
-  min-width: 300px;
+  min-width: 300px;          /* ancho mínimo para que no se achiquen */
+  max-width: 400px;          /* opcional, para que no se estiren demasiado */
 }
 
 /* Móvil */
 @media (max-width: 768px) {
-  .extras { flex-direction: column; gap: 15px; align-items: center; margin-top: 10px; }
+  .extras {
+    flex-direction: column;  /* se apilan verticalmente */
+    gap: 15px;
+    align-items: center;
+  }
   #calendario-img { max-width: 100%; height: auto; }
   .jornada-btn { padding: 8px 15px; font-size: 12px; }
-  footer { font-size: 12px; padding: 10px; }
 }
