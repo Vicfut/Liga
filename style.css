@@ -207,12 +207,12 @@ footer {
   white-space: nowrap;
 }
 
-/* ---------- CALENDARIO + JORNADAS ---------- */
+/* ---------- NUEVAS REGLAS PARA CALENDARIO + JORNADAS ---------- */
 .top-section {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-  align-items: flex-start;
+  justify-content: center; /* Centra ambos elementos en la página */
+  gap: 50px; /* Espacio entre Calendario y Jornadas */
+  align-items: flex-start; /* Alinea la parte superior */
   margin-top: 40px;
 }
 
@@ -237,7 +237,7 @@ footer {
 }
 
 .jornadas-dropdown {
-  display: none;
+  display: none; /* Se mostrará solo por JS */
   position: absolute;
   top: 100%;
   left: 0;
