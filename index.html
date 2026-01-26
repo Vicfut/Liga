@@ -4,53 +4,9 @@
   <meta charset="UTF-8">
   <title>Liga Xposers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://imgur.com/n66VboL.png" type="image/png">
-
-  <style>
-    /* Contenedor Calendario + Jornadas alineados */
-    .extras {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    /* Jornadas */
-    #jornadas {
-      cursor: pointer;
-      text-align: center;
-    }
-
-    #jornadas-box {
-      display: none;
-      margin-top: 15px;
-    }
-
-    .jornada-btn {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .jornada-btn:hover {
-      background-color: #444;
-    }
-
-    #resultados-jornada p {
-      margin: 6px 0;
-      text-align: center;
-    }
-  </style>
 </head>
-
 <body>
 
 <header>
@@ -76,7 +32,6 @@
 <main>
 <section>
 <h2>Tabla de Clasificación</h2>
-
 <div class="table-container">
 <table>
 <thead>
@@ -93,10 +48,6 @@
 <th>Pts</th>
 </tr>
 </thead>
-
-
-  
-
 <tbody>
 <tr>
 <td>1</td>
@@ -108,9 +59,8 @@
     <span class="team-name">Los Románticos</span>
   </div>
 </td>
-<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>1</td><td>+7</td><td>3</td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>1</td><td>7</td><td>3</td>
 </tr>
-
 <tr>
 <td>2</td>
 <td>
@@ -121,9 +71,8 @@
     <span class="team-name">Cuervos FC</span>
   </div>
 </td>
-<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>2</td><td>+6</td><td>3</td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>2</td><td>6</td><td>3</td>
 </tr>
-
 <tr>
 <td>3</td>
 <td>
@@ -134,9 +83,8 @@
     <span class="team-name">PonElde30 FC</span>
   </div>
 </td>
-<td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>+4</td><td>3</td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>4</td><td>3</td>
 </tr>
-
 <tr>
 <td>4</td>
 <td>
@@ -147,9 +95,8 @@
     <span class="team-name">Nitokonikito FC</span>
   </div>
 </td>
-<td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>+1</td><td>3</td>
+<td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>1</td><td>3</td>
 </tr>
-
 <tr>
 <td>5</td>
 <td>
@@ -162,7 +109,6 @@
 </td>
 <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>0</td>
 </tr>
-
 <tr>
 <td>6</td>
 <td>
@@ -175,7 +121,6 @@
 </td>
 <td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>-4</td><td>0</td>
 </tr>
-
 <tr>
 <td>7</td>
 <td>
@@ -188,7 +133,6 @@
 </td>
 <td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>8</td><td>-6</td><td>0</td>
 </tr>
-
 <tr>
 <td>8</td>
 <td>
@@ -201,7 +145,6 @@
 </td>
 <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>8</td><td>-7</td><td>0</td>
 </tr>
-
 <tr>
 <td>9</td>
 <td>
@@ -214,7 +157,6 @@
 </td>
 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
 </tr>
-
 <tr>
 <td>10</td>
 <td>
@@ -228,108 +170,76 @@
 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
 </tr>
 </tbody>
-
-
-  
 </table>
 </div>
 </section>
 
-<div class="extras">
-
-  <div>
+<!-- Calendario + Jornadas -->
+<div class="top-section">
+  <div class="calendario-container">
     <h2 id="calendario">Calendario</h2>
     <img id="calendario-img" src="https://i.imgur.com/7kS9nTW.png" style="display:none; max-width:600px; margin-top:15px;">
   </div>
 
   <div class="jornadas-container">
-    <h2 id="jornadas-btn">Jornadas</h2>
-    
-    <div id="jornadas-dropdown" style="display:none; margin-top:10px; text-align:center;">
+    <button class="jornadas-btn">Jornadas</button>
+    <div class="jornadas-dropdown">
       <div class="jornada-btn" data-jornada="1">J1</div>
       <div id="resultados-jornada" style="margin-top:10px;"></div>
     </div>
   </div>
-
 </div>
-
-
-</main>
 
 <footer>
 <p>© 2026 - Liga Xposers - Vicfut</p>
 </footer>
 
 <script>
-// ----------------------
 // TABLA ORDENABLE
-// ----------------------
 const table = document.querySelector("table tbody");
 const headers = document.querySelectorAll("table thead th");
-
-// Columnas numéricas: PJ, G, E, P, GF, GC, DG, Pts
 const numericCols = [2,3,4,5,6,7,8,9];
 
 headers.forEach((th, index) => {
-  if (numericCols.includes(index)) {
+  if(numericCols.includes(index)){
     th.style.cursor = "pointer";
     let descending = true;
-
     th.addEventListener("click", () => {
       const rows = Array.from(table.querySelectorAll("tr"));
-
-      rows.sort((a, b) => {
+      rows.sort((a,b) => {
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
-
-        // Orden especial para Puntos
         if(index === 9){ // Pts
           const pjA = parseInt(a.children[2].textContent);
           const pjB = parseInt(b.children[2].textContent);
           const dgA = parseInt(a.children[8].textContent);
           const dgB = parseInt(b.children[8].textContent);
-
-          // Equipos que no han jugado
-          if(pjA === 0 && pjB !== 0) return descending ? 1 : -1;
-          if(pjB === 0 && pjA !== 0) return descending ? -1 : 1;
+          if(pjA === 0 && pjB !== 0) return descending?1:-1;
+          if(pjB === 0 && pjA !== 0) return descending?-1:1;
           if(pjA === 0 && pjB === 0) return 0;
-
-          // Empate en puntos: desempate DG
-          if(valA === valB){
-            return descending ? dgB - dgA : dgA - dgB;
-          }
-          return descending ? valB - valA : valA - valB;
+          if(valA===valB) return descending?dgB-dgA:dgA-dgB;
+          return descending?valB-valA:valA-valB;
         }
-
-        // Orden normal para el resto
-        if(valA === valB){
-          return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
-        }
-        return descending ? valB - valA : valA - valB;
+        if(valA===valB) return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
+        return descending?valB-valA:valA-valB;
       });
-
-      rows.forEach(row => table.appendChild(row));
+      rows.forEach(row=>table.appendChild(row));
       descending = !descending;
     });
   }
 });
 
-// ----------------------
 // CALENDARIO
-// ----------------------
 const calendarioTitle = document.getElementById("calendario");
 const calendarioImg = document.getElementById("calendario-img");
-
-calendarioTitle.addEventListener("click", () => {
-  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
+calendarioTitle.addEventListener("click", ()=>{
+  calendarioImg.style.display = calendarioImg.style.display==='none'?'block':'none';
 });
 
-// ----------------------
-// JORNADAS DESPLEGABLES
-// ----------------------
+// JORNADAS
+const jornadasBtn = document.querySelector(".jornadas-btn");
+const jornadasDropdown = document.querySelector(".jornadas-dropdown");
 const resultadosJornada = document.getElementById("resultados-jornada");
-const jornadaBtns = document.querySelectorAll(".jornada-btn");
-
 const resultados = {
   "1": [
     "Los Románticos 8 - 1 Catamarca",
@@ -339,14 +249,18 @@ const resultados = {
   ]
 };
 
-jornadaBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
+jornadasBtn.addEventListener("click", ()=>{
+  jornadasDropdown.style.display = jornadasDropdown.style.display==='none'?'block':'none';
+});
+
+document.querySelectorAll(".jornada-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
     const jornada = btn.dataset.jornada;
-    resultadosJornada.innerHTML = "";
+    resultadosJornada.innerHTML="";
     if(resultados[jornada]){
-      resultados[jornada].forEach(res => {
-        const p = document.createElement("p");
-        p.textContent = res;
+      resultados[jornada].forEach(res=>{
+        const p=document.createElement("p");
+        p.textContent=res;
         resultadosJornada.appendChild(p);
       });
     }
@@ -354,6 +268,6 @@ jornadaBtns.forEach(btn => {
 });
 </script>
 
-
 </body>
 </html>
+
