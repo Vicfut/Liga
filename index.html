@@ -264,6 +264,8 @@
 // Tabla ordenable
 const table = document.querySelector("table tbody");
 const headers = document.querySelectorAll("table thead th");
+
+// Columnas numéricas: PJ, G, E, P, GF, GC, DG, Pts
 const numericCols = [2,3,4,5,6,7,8,9];
 
 headers.forEach((th, index) => {
@@ -278,38 +280,24 @@ headers.forEach((th, index) => {
         let valA = parseInt(a.children[index].textContent);
         let valB = parseInt(b.children[index].textContent);
 
-        if(index === 9){ // Puntos
-          const dgA = parseInt(a.children[8].textContent.replace('+',''));
-          const dgB = parseInt(b.children[8].textContent.replace('+',''));
-          const pjA = parseInt(a.children[2].textContent);
-          const pjB = parseInt(b.children[2].textContent);
-
-          if(valB !== valA) return descending ? valB - valA : valA - valB;
-          if(dgB !== dgA) return dgB - dgA;
-          if(pjB !== pjA) return pjB - pjA;
-
-          return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
+        // Orden especial para Puntos
+        if(index === 9){ // Pts
+          const dgA = parseInt(a.children[8].textContent.replace('+','').replace('-',''));
+          const dgB = parseInt(b.children[8].textContent.replace('+','').replace('-',''));
+          if(valA === valB){ // empate en puntos
+            return descending ? dgB - dgA : dgA - dgB;
+          }
+          return descending ? valB - valA : valA - valB;
         }
 
-        if(index === 2){ // PJ
-          const ptsA = parseInt(a.children[9].textContent);
-          const ptsB = parseInt(b.children[9].textContent);
-          const dgA = parseInt(a.children[8].textContent.replace('+',''));
-          const dgB = parseInt(b.children[8].textContent.replace('+',''));
-
-          if(valB !== valA) return descending ? valB - valA : valA - valB;
-          if(ptsB !== ptsA) return ptsB - ptsA;
-          if(dgB !== dgA) return dgB - dgA;
-
-          return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
-        }
-
+        // Orden normal para el resto
         if(valA === valB){
           return a.children[1].textContent.trim().localeCompare(b.children[1].textContent.trim());
         }
         return descending ? valB - valA : valA - valB;
       });
 
+      // Reinsertar filas ordenadas en la tabla
       rows.forEach(row => table.appendChild(row));
       descending = !descending;
     });
@@ -324,8 +312,6 @@ calendarioTitle.addEventListener("click", () => {
 });
 
 // Jornadas desplegable
-const jornadasBtn = document.getElementById("jornadas-btn");
-const jornadasDropdown = document.getElementById("jornadas-dropdown");
 const resultadosJornada = document.getElementById("resultados-jornada");
 
 const resultados = {
@@ -336,11 +322,6 @@ const resultados = {
     "Cuervos 8 - 2 Antisoccer"
   ]
 };
-
-// Alterna mostrar/ocultar dropdown al click
-jornadasBtn.addEventListener("click", () => {
-  jornadasDropdown.style.display = jornadasDropdown.style.display === "block" ? "none" : "block";
-});
 
 // Mostrar resultados al pulsar la jornada
 const jornadaBtns = document.querySelectorAll(".jornada-btn");
