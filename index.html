@@ -282,10 +282,11 @@ headers.forEach((th, index) => {
 
         // Orden especial para Puntos
         if(index === 9){ // Pts
-          const dgA = parseInt(a.children[8].textContent.replace('+','').replace('-',''));
-          const dgB = parseInt(b.children[8].textContent.replace('+','').replace('-',''));
+          const dgA = parseInt(a.children[8].textContent); // Ahora sí se mantiene signo
+          const dgB = parseInt(b.children[8].textContent);
+
           if(valA === valB){ // empate en puntos
-            return descending ? dgB - dgA : dgA - dgB;
+            return descending ? dgB - dgA : dgA - dgB; // DG mayor = mejor posición
           }
           return descending ? valB - valA : valA - valB;
         }
@@ -303,6 +304,7 @@ headers.forEach((th, index) => {
     });
   }
 });
+
 
 // Calendario
 const calendarioTitle = document.getElementById("calendario");
