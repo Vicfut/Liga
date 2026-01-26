@@ -261,6 +261,7 @@
 </footer>
 
 <script>
+<script>
 // ----------------------
 // TABLA ORDENABLE
 // ----------------------
@@ -308,7 +309,6 @@ headers.forEach((th, index) => {
         return descending ? valB - valA : valA - valB;
       });
 
-      // Reinsertar filas ordenadas en la tabla
       rows.forEach(row => table.appendChild(row));
       descending = !descending;
     });
@@ -320,6 +320,7 @@ headers.forEach((th, index) => {
 // ----------------------
 const calendarioTitle = document.getElementById("calendario");
 const calendarioImg = document.getElementById("calendario-img");
+
 calendarioTitle.addEventListener("click", () => {
   calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
 });
@@ -330,7 +331,6 @@ calendarioTitle.addEventListener("click", () => {
 const resultadosJornada = document.getElementById("resultados-jornada");
 const jornadaBtns = document.querySelectorAll(".jornada-btn");
 
-// Objeto con resultados de ejemplo (se irán agregando más jornadas)
 const resultados = {
   "1": [
     "Los Románticos 8 - 1 Catamarca",
@@ -340,46 +340,6 @@ const resultados = {
   ]
 };
 
-// Mostrar resultados al pulsar la jornada
-jornadaBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const jornada = btn.dataset.jornada;
-    resultadosJornada.innerHTML = "";
-    if(resultados[jornada]){
-      resultados[jornada].forEach(res => {
-        const p = document.createElement("p");
-        p.textContent = res;
-        resultadosJornada.appendChild(p);
-      });
-    }
-  });
-});
-
-
-
-
-
-// Calendario
-const calendarioTitle = document.getElementById("calendario");
-const calendarioImg = document.getElementById("calendario-img");
-calendarioTitle.addEventListener("click", () => {
-  calendarioImg.style.display = calendarioImg.style.display === "none" ? "block" : "none";
-});
-
-// Jornadas desplegable
-const resultadosJornada = document.getElementById("resultados-jornada");
-
-const resultados = {
-  "1": [
-    "Los Románticos 8 - 1 Catamarca",
-    "Nitokonikito 2 - 1 Fragance",
-    "PonElde30 4 - 0 Guaya City",
-    "Cuervos 8 - 2 Antisoccer"
-  ]
-};
-
-// Mostrar resultados al pulsar la jornada
-const jornadaBtns = document.querySelectorAll(".jornada-btn");
 jornadaBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     const jornada = btn.dataset.jornada;
