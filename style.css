@@ -1,78 +1,238 @@
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html, body { height:100%; }
+/* Body */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background:#2b2b2b;
-  color:#e0e0e0;
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+  background-color: #2b2b2b;
+  color: #e0e0e0;
 }
 
 /* Header */
 header {
-  background:#1f1f1f;
-  padding:30px 20px 5px;
-  text-align:center;
+  background-color: #1f1f1f;
+  padding: 30px 20px 5px;
+  text-align: center;
 }
+
 header h1 {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
+  font-size: 36px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0;
 }
-.header-logo { width:235px; height:180px; object-fit:contain; }
+
+.header-logo {
+  width: 235px;
+  height: 180px;
+  object-fit: contain;
+}
 
 /* Clubs */
 .clubs {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:nowrap;
-  margin:20px auto 0;
-  width:fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  margin: 20px auto 0;
+  width: fit-content;
+  max-width: 100%;
 }
-.club { width:48px; height:48px; background:#2b2b2b; border:1px solid #444; display:flex; align-items:center; justify-content:center; }
-.club img { max-width:85%; max-height:85%; }
-.club:hover { background:#3a3a3a; }
 
-/* Main ocupa todo el espacio entre header y footer */
-main { flex:1; max-width:1100px; margin:30px auto; padding:0 20px; display:flex; flex-direction:column; }
-
-/* Tabla */
-.table-container { overflow-x:auto; margin-bottom:20px; }
-table { width:100%; border-collapse:collapse; background:#1f1f1f; }
-thead { background:#333; }
-th, td { padding:10px; text-align:center; border-bottom:1px solid #444; }
-th { color:#fff; }
-tbody tr:hover { background:#2f2f2f; }
-.team-cell { display:flex; align-items:center; gap:12px; }
-.logo-box { width:36px; height:36px; display:flex; align-items:center; justify-content:center; }
-.logo { max-width:100%; max-height:100%; object-fit:contain; }
-.team-name { white-space:nowrap; }
-
-/* Calendario + Jornadas en línea (PC) */
-.top-section {
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  gap:80px;
-  flex-wrap:nowrap;
-  margin-top:25px;
+@media (min-width: 769px) {
+  .clubs {
+    justify-content: center;
+    overflow-x: visible;
+  }
 }
-.calendario-container, .jornadas-container { min-width:300px; max-width:400px; }
-#calendario-img { max-width:100%; margin-top:15px; }
-.jornada-btn { padding:10px 20px; margin:5px; border-radius:5px; background:#333; color:#fff; cursor:pointer; }
-.jornada-btn:hover { background:#555; }
-
-/* Footer siempre al final */
-footer { background:#1f1f1f; text-align:center; padding:15px; color:#aaa; font-size:14px; }
 
 /* Móvil */
-@media (max-width:768px) {
-  .top-section { flex-direction:column; gap:15px; align-items:center; }
-  .jornada-btn { padding:8px 15px; font-size:12px; }
-  #calendario-img { max-width:100%; height:auto; }
+@media (max-width: 768px) {
+  header {
+    padding: 20px 10px 5px;
+  }
+  header h1 { font-size: 24px; }
+  .header-logo { width: 150px; height: auto; }
+
+  .clubs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 5px;
+  }
+  .clubs::-webkit-scrollbar { display: none; }
+  .clubs { scrollbar-width: none; }
+  .club { width: 40px; height: 40px; }
+
+  /* Tabla más compacta */
+  .table-container { overflow-x: auto; margin-bottom: 15px; }
+  table { font-size: 12px; }
+  .logo-box { width: 28px; height: 28px; }
+  .team-name { font-size: 12px; }
+
+  main { padding: 0 10px; }
+  h2 { margin-top: 5px; margin-bottom: 15px; }
+}
+
+/* Club */
+.club {
+  width: 48px;
+  height: 48px;
+  background-color: #2b2b2b;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.club img { max-width: 85%; max-height: 85%; }
+.club:hover { background-color: #3a3a3a; }
+
+/* Main */
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px; /* margen reducido debajo del título de tabla */
+}
+
+/* Tabla */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  max-width: 1100px; /* para que ocupe más ancho */
+  margin: 0 auto; /* centra la tabla */
+  border-collapse: collapse;
+  background-color: #1f1f1f;
+}
+
+thead { background-color: #333333; }
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #444444;
+}
+th { color: #ffffff; }
+tbody tr:hover { background-color: #2f2f2f; }
+
+/* Celda equipo */
+.team-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-box {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo { max-width: 100%; max-height: 100%; object-fit: contain; }
+.team-name { white-space: nowrap; }
+
+/* Footer */
+footer {
+  background-color: #1f1f1f;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+/* Flechas de ordenación */
+.sort-arrows {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+  color: #bbbbbb;
+  position: relative;
+}
+.sort-arrows::before { content: "▲"; margin-right: 2px; color: #bbbbbb; }
+.sort-arrows::after { content: "▼"; color: #bbbbbb; }
+.sorted-asc .sort-arrows::before, .sorted-desc .sort-arrows::before { display: none; }
+.sorted-asc .sort-arrows::after, .sorted-desc .sort-arrows::after { color: #ffffff; }
+
+/* ---------- CALENDARIO + JORNADAS ---------- */
+.extras {
+  display: flex;
+  justify-content: center; /* centra los dos bloques */
+  align-items: flex-start; /* alineación superior */
+  gap: 80px; /* espacio entre Calendario y Jornadas */
+  margin-top: 25px;
+  flex-wrap: nowrap; /* no se envuelvan en escritorio */
+}
+
+/* Contenedores internos */
+.calendario-container,
+.jornadas-container {
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Títulos clicables */
+.calendario-container h2,
+.jornadas-container h2 {
+  cursor: pointer;
+}
+
+/* Imagen calendario */
+#calendario-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+/* Botones jornadas */
+#jornadas-box {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.jornada-btn {
+  width: 40px;   /* cuadrado */
+  height: 40px;  /* cuadrado */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0; /* sin padding para mantener cuadrado */
+}
+
+.jornada-btn:hover { background-color: #555; }
+
+/* Móvil: apilar Calendario y Jornadas */
+@media (max-width: 768px) {
+  .extras {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 }
