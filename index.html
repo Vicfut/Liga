@@ -287,9 +287,9 @@ headers.forEach((th, index) => {
           const dgA = parseInt(a.children[8].textContent); // diferencia de goles
           const dgB = parseInt(b.children[8].textContent);
 
-          // Equipos que no han jugado van al final
-          if(pjA === 0 && pjB !== 0) return 1;
-          if(pjB === 0 && pjA !== 0) return -1;
+          // Equipos que no han jugado
+          if(pjA === 0 && pjB !== 0) return descending ? 1 : -1;
+          if(pjB === 0 && pjA !== 0) return descending ? -1 : 1;
           if(pjA === 0 && pjB === 0) return 0;
 
           // Empate en puntos: desempate DG
@@ -312,6 +312,7 @@ headers.forEach((th, index) => {
     });
   }
 });
+
 
 
 
