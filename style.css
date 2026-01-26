@@ -207,12 +207,12 @@ footer {
   white-space: nowrap;
 }
 
-/* ---------- NUEVAS REGLAS PARA CALENDARIO + JORNADAS ---------- */
+/* ---------- CALENDARIO + JORNADAS ---------- */
 .top-section {
   display: flex;
-  justify-content: center; /* Centra ambos elementos en la página */
-  gap: 50px; /* Espacio entre Calendario y Jornadas */
-  align-items: flex-start; /* Alinea la parte superior */
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-start;
   margin-top: 40px;
 }
 
@@ -227,39 +227,39 @@ footer {
   position: relative;
 }
 
-.jornadas-container input[type="checkbox"] {
-  display: none;
-}
-
-.jornadas-label {
-  display: inline-block;
+.jornadas-btn {
   background-color: #333; /* Gris oscuro */
   color: white; /* Letras blancas */
   padding: 10px 20px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.jornadas-list {
+.jornadas-dropdown {
   display: none;
-  margin-top: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
   text-align: center;
+  z-index: 10;
 }
 
-.jornadas-container input[type="checkbox"]:checked + .jornadas-label + .jornadas-list {
-  display: block;
-}
-
-.jornada-box {
+.jornada-btn {
   display: inline-block;
-  background-color: #333; /* Gris oscuro */
+  background-color: #333;
   color: white;
   padding: 10px 20px;
   margin: 5px;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.jornada-box:hover {
+.jornada-btn:hover {
   background-color: #555;
 }
+
+
