@@ -1,18 +1,15 @@
 /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* Body */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #2b2b2b;
   color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header */
 header {
   background-color: #1f1f1f;
   padding: 30px 20px 5px;
@@ -20,101 +17,63 @@ header {
 }
 
 header h1 {
-  font-size: 36px;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 0;
+  font-size:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:0;
 }
 
-.header-logo {
-  width: 235px;
-  height: 180px;
-  object-fit: contain;
-}
+.header-logo { width:235px; height:180px; object-fit:contain; }
 
 /* Clubs */
 .clubs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap;
-  margin: 20px auto 0;
-  width: fit-content;
-  max-width: 100%;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:nowrap;
+  margin:20px auto 0;
+  width:fit-content;
+  max-width:100%;
 }
 
-@media (max-width: 768px) {
-  header { padding: 20px 10px 5px; }
-  header h1 { font-size: 24px; }
-  .header-logo { width: 150px; height: auto; }
-  .clubs { justify-content: flex-start; overflow-x: auto; padding: 5px; }
-  .clubs::-webkit-scrollbar { display: none; }
-  .clubs { scrollbar-width: none; }
-}
-
-/* Club */
-.club {
-  width: 48px;
-  height: 48px;
-  background-color: #2b2b2b;
-  border: 1px solid #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.2s;
-}
-
-.club img { max-width: 85%; max-height: 85%; }
-.club:hover { background-color: #3a3a3a; }
+.club { width:48px; height:48px; background:#2b2b2b; border:1px solid #444; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:0.2s; }
+.club img { max-width:85%; max-height:85%; }
+.club:hover { background:#3a3a3a; }
 
 /* Main */
-main { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-h2 { margin-top: 5px; margin-bottom: 20px; text-align: center; }
+main { max-width:1100px; margin:30px auto; padding:0 20px; flex:1; }
+
+h2 { margin:5px 0 20px; text-align:center; }
 
 /* Tabla */
-.table-container { overflow-x: auto; margin-bottom: 20px; }
-table { width: 100%; border-collapse: collapse; background-color: #1f1f1f; }
-thead { background-color: #333333; }
-th, td { padding: 10px; text-align: center; border-bottom: 1px solid #444444; }
-th { color: #ffffff; }
-tbody tr:hover { background-color: #2f2f2f; }
+.table-container { overflow-x:auto; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; background:#1f1f1f; }
+thead { background:#333; }
+th, td { padding:10px; text-align:center; border-bottom:1px solid #444; }
+th { color:#fff; }
+tbody tr:hover { background:#2f2f2f; }
 
-/* Celda equipo */
-.team-cell { display: flex; align-items: center; gap: 12px; }
-.logo-box { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.logo { max-width: 100%; max-height: 100%; object-fit: contain; }
-.team-name { white-space: nowrap; }
+.team-cell { display:flex; align-items:center; gap:12px; }
+.logo-box { width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.logo { max-width:100%; max-height:100%; object-fit:contain; }
+.team-name { white-space:nowrap; }
+
+/* ---------- Calendario + Jornadas ---------- */
+.top-section { display:flex; justify-content:center; align-items:flex-start; gap:80px; flex-wrap:nowrap; margin-top:25px; }
+.calendario-container, .jornadas-container { min-width:300px; max-width:400px; }
+
+#calendario-img { max-width:100%; margin-top:15px; }
+.jornada-btn { padding:10px 20px; margin:5px; border-radius:5px; background:#333; color:#fff; cursor:pointer; }
+.jornada-btn:hover { background:#555; }
 
 /* Footer */
-footer { background-color: #1f1f1f; text-align: center; padding: 15px; margin-top: 40px; color: #aaaaaa; font-size: 14px; }
-
-/* Calendario + Jornadas en paralelo */
-.extras {
-  display: flex;
-  justify-content: center;  /* centra los dos bloques */
-  align-items: flex-start;  /* alineación superior */
-  gap: 80px;                /* espacio entre Calendario y Jornadas */
-  margin-top: 25px;
-  flex-wrap: nowrap;         /* NO permitir que se envuelvan en escritorio */
-}
-
-
-.calendario-container, .jornadas-container {
-  min-width: 300px;          /* ancho mínimo para que no se achiquen */
-  max-width: 400px;          /* opcional, para que no se estiren demasiado */
-}
+footer { background:#1f1f1f; text-align:center; padding:15px; color:#aaa; font-size:14px; }
 
 /* Móvil */
-@media (max-width: 768px) {
-  .extras {
-    flex-direction: column;  /* se apilan verticalmente */
-    gap: 15px;
-    align-items: center;
-  }
-  #calendario-img { max-width: 100%; height: auto; }
-  .jornada-btn { padding: 8px 15px; font-size: 12px; }
+@media (max-width:768px) {
+  .top-section { flex-direction:column; gap:15px; align-items:center; }
+  .jornada-btn { padding:8px 15px; font-size:12px; }
+  #calendario-img { max-width:100%; height:auto; }
 }
